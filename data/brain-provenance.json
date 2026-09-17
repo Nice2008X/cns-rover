@@ -1,0 +1,20 @@
+{
+  "source": "https://huggingface.co/monomyth/fly-brain-codex/resolve/18933f06a9e80e9f40c503b2d58b54ab78e9283b/runtime-assets.tar.gz",
+  "revision": "18933f06a9e80e9f40c503b2d58b54ab78e9283b",
+  "archive_sha256": "c4c9295dcc1bc730ff6214aec29e7bf8cd0bbcd8ed5e4b73c3597743835c7d39",
+  "graph_id": "53e1d528e43cb834982e9207457da777d4c0d55f570844bb96b049ad043c3f7d",
+  "nodes": 167124,
+  "edges": 25578853,
+  "sensory_inputs": 17883,
+  "motor_outputs": 2129,
+  "circuit_populations": {
+    "retina": 3316,
+    "kc": 206,
+    "mbon": 29,
+    "dan": 44,
+    "dn": 138,
+    "motor": 240
+  },
+  "license": "CC-BY-4.0",
+  "biologically_validated": false
+}

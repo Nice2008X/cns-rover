@@ -1,0 +1,21 @@
+{
+  "schema": "cns-car-visual-reservoir-v1",
+  "source_circuit": "a6975cdd7314f078588f758f434f8cff22787bcf86a4d7d1d239760a5ca18e52",
+  "source_manifest_sha256": "19735588122c02982ec135a3c7ea96f879eeffdcd0d4b56647a514aaefa33847",
+  "source_revision": "18933f06a9e80e9f40c503b2d58b54ab78e9283b",
+  "retinal_neurons": 3316,
+  "visual_neurons": 512,
+  "feed_edges": 2951,
+  "recurrent_edges": 232,
+  "retinal_coverage": 0.666767189384801,
+  "selection": "512 strongest postsynaptic rows receiving retinal input",
+  "encoding": "engineered red salience, nearest retinal UV sampling",
+  "dynamics": "two leaky tanh updates per frame; abstract, not biological time",
+  "readout": "ridge regression to baseline steering and throttle",
+  "files": {
+    "retina.npz": "6b6ebc3b0f3e950cd0542c3d44c6798add62db23b67e0e7a8e65e271c0816125",
+    "recurrent.npz": "3911b7cc375e52dff3fea66657c348a48b5104606c8a3417117b37020074950d",
+    "mapping.npz": "a2502265b95f192431a66d2b82b0d28d99fcf088573ce7f9b64b83d9b8b660cf"
+  },
+  "biologically_validated": false
+}

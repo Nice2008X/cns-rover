@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cns-car"
+version = "0.2.0"
+description = "Camera-only toy-car benchmark and MaleCNS dataset workbench"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+data = ["pyarrow>=16"]
+web = ["fastapi>=0.115,<1", "uvicorn[standard]>=0.30,<1"]
+test = ["httpx>=0.27,<1"]
+brain = ["numpy>=1.26", "scipy>=1.12"]
+
+[project.scripts]
+cns-car = "cns_car.__main__:main"
+
+[tool.setuptools.package-data]
+cns_car = ["dashboard.html", "web/*", "web/assets/*"]
+
+[tool.setuptools.packages.find]
+include = ["cns_car*"]

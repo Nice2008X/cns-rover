@@ -1,0 +1,18 @@
+{
+  "schema": "cns-car-readout-v1",
+  "source_revision": "18933f06a9e80e9f40c503b2d58b54ab78e9283b",
+  "encoder": "car-encoder",
+  "encoder_manifest_sha256": "022191f8c66c0ff734672ebff1e168e067cb6101081b5c3c78ebd91f19f9f80d",
+  "training_seed": 2026,
+  "episodes": 20,
+  "samples": 5794,
+  "teacher": "camera-only BaselineController",
+  "ridge": 10,
+  "biologically_validated": false,
+  "training_rmse": [
+    0.5088710562749933,
+    0.08008791998926472
+  ],
+  "model_sha256": "a8f0650895c19b0d9c5a3209a230ac1055d8442adbffc0dfb4246281cbecc3a1",
+  "note": "Training error is not closed-loop success. Evaluate held-out scenarios and ablation."
+}
