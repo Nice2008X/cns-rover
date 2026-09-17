@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from .workbench import Workbench, validate_config
 
 
-def create_app(scenario, factory, root="runs/workbench", controller="baseline", model="data/car-readout.npz", port=8765):
+def create_app(scenario, factory, root="runs/workbench", controller="baseline", model=None, port=8765):
     bench = Workbench(scenario, factory, root, controller, model)
     @asynccontextmanager
     async def lifespan(app):
@@ -125,6 +125,6 @@ def create_app(scenario, factory, root="runs/workbench", controller="baseline", 
     return app
 
 
-def serve(scenario, factory, port=8765, controller="baseline", model="data/car-readout.npz"):
+def serve(scenario, factory, port=8765, controller="baseline", model=None):
     import uvicorn
     uvicorn.run(create_app(scenario, factory, controller=controller, model=model, port=port), host="127.0.0.1", port=port)

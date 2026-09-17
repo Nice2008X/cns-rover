@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: >-
+  If you use CNS Rover in your work, please cite this software. See
+  ATTRIBUTION.md for the separate credits and licenses of the MaleCNS
+  dataset and other upstream assets.
+title: "CNS Rover"
+abstract: >-
+  A Python robot-car simulator and browser workbench for connectome-guided
+  navigation. The native controller combines an independently extracted
+  MaleCNS v1.0 neural circuit and a freshly trained car readout with
+  RGB-based obstacle avoidance, target tracking, and braking. Controllers
+  receive camera pixels and simulated time, without access to simulator
+  ground truth. The workbench supports scenario editing, controller
+  comparisons, visual-input ablation, telemetry, deterministic recording,
+  and replay. The system is an experimental reduced-circuit simulation
+  with engineered perception and control, without biological validation
+  or demonstrated real-robot safety guarantees.
+type: software
+authors:
+  - name: "Nice2008X"
+    email: "aixu2008nice@gmail.com"
+repository-code: "https://github.com/Nice2008X/cns-rover"
+url: "https://github.com/Nice2008X/cns-rover"
+license: MIT
+version: "0.2.0"
+date-released: "2026-09-17"
+keywords:
+  - connectomics
+  - MaleCNS
+  - robot navigation
+  - obstacle avoidance
+  - simulation
+  - reproducible evaluation

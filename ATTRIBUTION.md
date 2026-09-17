@@ -18,7 +18,25 @@ steering/throttle readout. These are engineering assumptions and are not
 validated biological dynamics. The released robot-arm policy is not used.
 
 The natverse R repository was inspected for background and is retained in
-vendor/malecns with its GPL-3.0 license. No R code is executed or incorporated
-into this Python simulator. The Python reference source is retained under
+vendor/malecns with its GPL-3.0 license. No R code is incorporated into the Python runtime. The optional
+`scripts/export_malecns.R` now executes the vendored package for data export. The Python reference source is retained under
 vendor/fly-brain-codex with its MIT license. Neither vendor tree is required
 at runtime.
+
+## Independent native MaleCNS car model
+
+`data/malecns-car/` is derived directly from Janelia's original MaleCNS v1.0
+flat connectivity and annotations, not from Fly Brain Codex. Source URLs and
+SHA-256 values, plus hashes of the inspected vendored natverse/malecns files,
+are recorded in its manifest. The optional R exporter calls the vendored package.
+
+Data attribution: FlyEM / HHMI Janelia, University of Cambridge, MRC Laboratory
+of Molecular Biology, Google Research, and collaborators. Source and license:
+https://male-cns.janelia.org/download/ and
+https://creativecommons.org/licenses/by/4.0/.
+
+New modifications: select annotated LC4/LC6/LC11/LPLC1/LPLC2 inputs and their
+strongest central/descending partners, retain actual synapse counts, engineer
+sector inputs and normalized unsigned rate dynamics, fit a new car readout,
+and add a separate RGB local avoidance planner. These transformations and the
+resulting car behavior are not biologically validated.

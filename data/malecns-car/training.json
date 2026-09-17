@@ -1,0 +1,19 @@
+{
+  "schema": "malecns-car-readout-v1",
+  "circuit_sha256": "36fbef3c33d2c41044932167623b5d19ec99fb50961dbb0cd240bf005d8beb5f",
+  "seed": 2718,
+  "training_samples": 6000,
+  "validation_samples": 1000,
+  "validation_rmse": [
+    0.00042576812345003777,
+    0.00033338542719295566,
+    0.0001890713824201678
+  ],
+  "outputs": [
+    "target_bearing",
+    "avoidance_bias",
+    "proximity"
+  ],
+  "teacher": "engineered sector bearing and proximity equations",
+  "biologically_validated": false
+}

@@ -492,9 +492,19 @@ export function ConfigPage({
                   "Engineered red-ball detection, curved search, approach, and braking.",
                 ],
                 [
+                  "malecns",
+                  "MaleCNS car + avoidance",
+                  "New circuit from original MaleCNS v1.0 connectivity, with RGB obstacle avoidance and braking.",
+                ],
+                [
+                  "malecns-ablated",
+                  "MaleCNS visual ablation",
+                  "New circuit with visual drive disabled; geometric safety remains active.",
+                ],
+                [
                   "connectome",
-                  "Connectome-derived policy",
-                  "Experimental retinal circuit and learned car readout. Uses the local trained model.",
+                  "Legacy connectome policy",
+                  "Earlier Fly Brain Codex-derived retinal circuit and car readout.",
                 ],
                 [
                   "ablated",
@@ -663,7 +673,7 @@ export function AnalysisPage({
             />
           </label>
           <div className="batch-models">
-            {["baseline", "connectome", "ablated"].map((m) => (
+            {["baseline", "connectome", "ablated", "malecns", "malecns-ablated"].map((m) => (
               <label key={m}>
                 <input
                   type="checkbox"

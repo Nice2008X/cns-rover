@@ -164,3 +164,19 @@ test("environment editing, invalid configuration, and settings", async ({
   await expect(page.getByLabel("Smooth camera enlargement")).toBeChecked();
   expect(errors).toEqual([]);
 });
+
+test("native MaleCNS selection exposes neural and avoidance telemetry", async ({ page, request }) => {
+  await request.post("/api/configure", { data: { controller: "baseline", scenario: { timeout: 30 } } });
+  await page.goto("/");
+  await page.getByRole("navigation").getByRole("button", { name: "Models", exact: true }).click();
+  await page.locator('input[value="malecns"]').check();
+  await page.getByRole("button", { name: "Apply & create new run" }).click();
+  await expect.poll(async () => (await (await request.get("/api/state")).json()).controller).toBe("malecns");
+  await request.post("/api/run", { data: {} });
+  await expect.poll(async () => (await (await request.get("/api/state")).json()).debug.active_neurons).toBeGreaterThan(0);
+  await request.post("/api/pause", { data: {} });
+  const state = await (await request.get("/api/state")).json();
+  expect(state.debug).toHaveProperty("neural_proximity");
+  expect(state.debug).toHaveProperty("safety_override");
+  await request.post("/api/configure", { data: { controller: "baseline" } });
+});

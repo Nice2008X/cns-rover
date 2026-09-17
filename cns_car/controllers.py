@@ -36,6 +36,9 @@ class BaselineController:
 def load_controller(spec="baseline"):
     if spec == "baseline":
         controller = BaselineController()
+    elif spec in ("malecns", "malecns-ablated"):
+        from .malecns_controller import MaleCNSController
+        controller = MaleCNSController(ablated=spec == "malecns-ablated")
     else:
         import importlib
         module, name = spec.split(":", 1)

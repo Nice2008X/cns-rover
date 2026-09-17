@@ -1,0 +1,43 @@
+{
+  "schema": "malecns-car-circuit-v1",
+  "dataset": "male-cns:v1.0",
+  "provenance": {
+    "source": "Janelia public flat snapshot",
+    "dataset": "male-cns:v1.0",
+    "urls": {
+      "annotations.feather": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "weights.feather": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather"
+    }
+  },
+  "source_sha256": {
+    "annotations.feather": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+    "weights.feather": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1"
+  },
+  "vendor_sha256": {
+    "DESCRIPTION": "66f1dd9b9a8cd7fb79b90b7892c744d632f58ee0203ff8884c95d1660a236702",
+    "R/neuprint.R": "3719656e53ea5b12d561e1df747bd6466660ad56834e48d5d5a8b65170bac581",
+    "R/urls.R": "65bb4ff4e37470d9c3d792ba3a5c10873cecbda893d053e8099c31dd4d85bd5a",
+    "R/zzz.R": "f635a6dbcab4b1e69c876f407a68ada42e52daac8d7cbc76eb028b45c37a85e8"
+  },
+  "visual_types": [
+    "LC4",
+    "LC6",
+    "LC11",
+    "LPLC1",
+    "LPLC2"
+  ],
+  "visual_neurons": 712,
+  "downstream_neurons": 384,
+  "anatomical_edges": 29583,
+  "selection": "top 384 central/descending partners of selected visual types; >=5 synapses",
+  "encoding": "7 target + 7 proximity sectors; soma side and body-ID order mapping, not retinotopy",
+  "dynamics": "4 tanh rate iterations from zero; unsigned normalized synapse counts",
+  "biologically_validated": false,
+  "license": "CC-BY-4.0",
+  "files": {
+    "feed.npz": "89d09c304d6c04363f265033e8bc5fa92f196ad75912551e5c6bcd27b06ebdad",
+    "recurrent.npz": "383d2cac61375abe8d390df68b9c6d90dfb51d51b3a82f60f3507f693cabac4d",
+    "anatomy.npz": "509cb487f35c9161fdb4835f16de283569edcb5716378198899587c711275671",
+    "neurons.json": "e9a1ea20cc67ab0621f6072b3e8aec0e47d55c2917dbc82bace79a7edd63bf2e"
+  }
+}

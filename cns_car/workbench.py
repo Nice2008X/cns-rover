@@ -43,7 +43,7 @@ def validate_config(data):
         if not isinstance(vehicle[key], (int, float)) or not low <= vehicle[key] <= high:
             raise ValueError(f"{key} must be between {low} and {high}")
     model = data.get("controller", "baseline")
-    if model not in ("baseline", "connectome", "ablated", "custom"):
+    if model not in ("baseline", "connectome", "ablated", "malecns", "malecns-ablated", "custom"):
         raise ValueError("Unsupported controller")
     return {"scenario": scenario.to_dict(), "sensor": sensor, "vehicle": vehicle, "controller": model}
 
@@ -98,6 +98,8 @@ class Experiment:
         (self.path / "frames").mkdir()
         (self.path / "steps.jsonl").touch()
         self.session = Session(Scenario(**config["scenario"]), factory())
+        if hasattr(self.session.controller, "configure"):
+            self.session.controller.configure(config["sensor"], config["vehicle"])
         self.session.camera = Camera(**config["sensor"])
         self.session.sim.wheelbase = config["vehicle"]["wheelbase"]
         self.session.sim.max_steering = math.radians(config["vehicle"]["max_steering_degrees"])
@@ -187,11 +189,14 @@ class Experiment:
 
 
 class Workbench:
-    def __init__(self, scenario, factory, root, controller="baseline", model="data/car-readout.npz"):
+    def __init__(self, scenario, factory, root, controller="baseline", model=None):
         self.lock = threading.RLock()
         self.store = RunStore(root)
         self.factory = factory
-        self.model = Path(model)
+        if model is None:
+            model = "data/malecns-car" if controller in ("malecns", "malecns-ablated") else "data/car-readout.npz"
+        self.model = Path(model) if controller not in ("malecns", "malecns-ablated") else Path("data/car-readout.npz")
+        self.malecns_model = Path(model) if controller in ("malecns", "malecns-ablated") else Path("data/malecns-car")
         self.config = validate_config({"scenario": scenario.to_dict(), "controller": controller})
         self.current = Experiment(self.config, self.get_factory(controller), self.store)
         self.running = False
@@ -208,6 +213,9 @@ class Workbench:
     def get_factory(self, name):
         if name == "custom":
             return self.factory
+        if name in ("malecns", "malecns-ablated"):
+            from .malecns_controller import MaleCNSController
+            return lambda: MaleCNSController(self.malecns_model, ablated=name == "malecns-ablated")
         if name == "baseline":
             return lambda: load_controller("baseline")
         from .brain import ConnectomeController
@@ -278,7 +286,7 @@ class Workbench:
             models = payload.get("controllers", [self.config["controller"]])
             if type(count) is not int or not 1 <= count <= 1000 or type(seed) is not int or not 0 <= seed <= 2147482647:
                 raise ValueError("Use 1–1000 seeds and a nonnegative integer starting seed")
-            if not isinstance(models, list) or not models or len(models) > 3 or any(m not in ["baseline", "connectome", "ablated"] for m in models):
+            if not isinstance(models, list) or not models or len(models) > 5 or any(m not in ["baseline", "connectome", "ablated", "malecns", "malecns-ablated"] for m in models):
                 raise ValueError("Choose supported controllers")
             config = copy.deepcopy(self.config)
             self.batch = {"status": "running", "completed": 0, "total": count*len(models), "runs": [], "seed": seed}

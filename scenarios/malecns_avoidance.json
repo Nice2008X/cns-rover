@@ -1,0 +1,9 @@
+{
+  "name": "malecns_obstacle_avoidance",
+  "task": "Find the red ball and stop near it.",
+  "size": [10, 10],
+  "start": [2, 5, 0],
+  "target": [7, 5, 0.15],
+  "obstacles": [[4, 5.4, 0.4]],
+  "timeout": 60
+}
