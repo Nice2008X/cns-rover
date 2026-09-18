@@ -8,7 +8,7 @@ a freshly trained connectome readout with RGB obstacle avoidance, target trackin
 and braking. Controllers receive camera pixels and simulated time; vehicle pose,
 world geometry, target coordinates, and collision state stay inside the simulator.
 
-The Python package and command names remain `cns_car` and `cns-car`.
+The Python package and command names remain `cns_rover` and `cns-rover`.
 
 ## Quick start
 
@@ -18,7 +18,7 @@ Run these commands from the repository root using Python 3.10 or newer. Reuse
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -e '.[brain,web]'
-.venv/bin/python -m cns_car serve --controller malecns
+.venv/bin/python -m cns_rover serve --controller malecns
 ```
 
 Open **http://127.0.0.1:8765**. The built frontend and the small native MaleCNS
@@ -28,11 +28,11 @@ download, R installation, GPU, or neuPrint token.
 To start with an obstacle layout:
 
 ```sh
-.venv/bin/python -m cns_car serve --controller malecns \
+.venv/bin/python -m cns_rover serve --controller malecns \
   --scenario scenarios/malecns_avoidance.json
 ```
 
-In the dashboard, select **Models → MaleCNS car + avoidance**, then apply to create
+In the dashboard, select **Models → MaleCNS rover + avoidance**, then apply to create
 a new run. Running `serve` without `--controller` still selects the camera baseline.
 The baseline CLI simulator needs only Python; the dashboard adds the `web`
 dependencies and neural controllers add NumPy and SciPy through `brain`.
@@ -41,7 +41,7 @@ dependencies and neural controllers add NumPy and SciPy through `brain`.
 
 | CLI selector | Controller | Model source and behavior |
 | --- | --- | --- |
-| `malecns` | MaleCNS car + avoidance | Original MaleCNS v1.0 connectivity, a new car readout, and camera-based avoidance/braking |
+| `malecns` | MaleCNS rover + avoidance | Original MaleCNS v1.0 connectivity, a new car readout, and camera-based avoidance/braking |
 | `malecns-ablated` | Native visual-input ablation | Same native model with neural visual drive disabled; geometric checks and target stopping remain active |
 | `baseline` | Camera baseline | Engineered red-ball tracking and curved search; no general obstacle avoidance |
 | `connectome` | Legacy connectome policy | Earlier Fly Brain Codex-derived visual circuit and learned car readout |
@@ -49,12 +49,12 @@ dependencies and neural controllers add NumPy and SciPy through `brain`.
 | `your_module:YourController` | Custom controller | Loads a no-argument Python controller class |
 
 The native and legacy model formats are separate. For `malecns`, `--model` points
-to a circuit **directory**, defaulting to `data/malecns-car`. For `connectome`, it
-points to a readout **file**, defaulting to `data/car-readout.npz`:
+to a circuit **directory**, defaulting to `data/malecns-rover`. For `connectome`, it
+points to a readout **file**, defaulting to `data/rover-readout.npz`:
 
 ```sh
-.venv/bin/python -m cns_car serve --controller malecns --model data/malecns-car
-.venv/bin/python -m cns_car serve --controller connectome --model data/car-readout.npz
+.venv/bin/python -m cns_rover serve --controller malecns --model data/malecns-rover
+.venv/bin/python -m cns_rover serve --controller connectome --model data/rover-readout.npz
 ```
 
 ## Native MaleCNS controller
@@ -103,13 +103,13 @@ annotations and connectivity; already cached in this workspace):
 
 ```sh
 .venv/bin/python -m pip install -e '.[malecns]'
-.venv/bin/python -m cns_car prepare-malecns --download
+.venv/bin/python -m cns_rover prepare-malecns --download
 ```
 
 The builder verifies pinned file sizes and SHA-256 values, extracts the circuit,
 and trains a fresh readout. `prepare-malecns` requires `vendor/malecns` to record
 and check its dataset configuration. Raw files live in `data/malecns-raw/`;
-the default model output is `data/malecns-car/`. Use `--output` with a new directory
+the default model output is `data/malecns-rover/`. Use `--output` with a new directory
 to preserve an existing model.
 
 **Build through the vendored R package** after installing R and the dependencies
@@ -118,9 +118,9 @@ listed in `vendor/malecns/DESCRIPTION`, plus `devtools` and `jsonlite`, and sett
 
 ```sh
 Rscript scripts/export_malecns.R data/malecns-export
-.venv/bin/python -m cns_car prepare-malecns \
-  --source data/malecns-export --output data/malecns-car-r
-.venv/bin/python -m cns_car serve --controller malecns --model data/malecns-car-r
+.venv/bin/python -m cns_rover prepare-malecns \
+  --source data/malecns-export --output data/malecns-rover-r
+.venv/bin/python -m cns_rover serve --controller malecns --model data/malecns-rover-r
 ```
 
 The R export file format has an import round-trip test. Actual R execution remains
@@ -131,9 +131,9 @@ The legacy pipeline remains available through `fetch-brain`, `inspect-brain`, an
 `train-brain`. Its assets are already present in this workspace. To rebuild it:
 
 ```sh
-.venv/bin/python -m cns_car fetch-brain
-.venv/bin/python -m cns_car inspect-brain
-OPENBLAS_NUM_THREADS=2 .venv/bin/python -m cns_car train-brain --episodes 20
+.venv/bin/python -m cns_rover fetch-brain
+.venv/bin/python -m cns_rover inspect-brain
+OPENBLAS_NUM_THREADS=2 .venv/bin/python -m cns_rover train-brain --episodes 20
 ```
 
 `fetch-brain` downloads a separate, pinned 348 MB Fly Brain Codex archive when
@@ -165,9 +165,9 @@ avoidance overrides in its debug telemetry.
 Record and verify a CLI obstacle run:
 
 ```sh
-.venv/bin/python -m cns_car run --controller malecns \
+.venv/bin/python -m cns_rover run --controller malecns \
   --scenario scenarios/malecns_avoidance.json --output runs/rover-demo --frames
-.venv/bin/python -m cns_car replay runs/rover-demo
+.venv/bin/python -m cns_rover replay runs/rover-demo
 ```
 
 Use a new output directory for each recording. Replay reapplies commands and
@@ -270,7 +270,7 @@ Implement a no-argument class with `reset(task)` and
 `act(observation) -> VehicleCommand`, then run:
 
 ```sh
-.venv/bin/python -m cns_car run --controller your_module:YourController
+.venv/bin/python -m cns_rover run --controller your_module:YourController
 ```
 
 `Observation` is immutable and contains packed `rgb` bytes, `width`, `height`, and

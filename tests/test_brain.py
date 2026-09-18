@@ -4,7 +4,7 @@ from pathlib import Path
 import tarfile
 import tempfile
 import unittest
-from cns_car.brain import safe_unpack, sha256, verify_directory
+from cns_rover.brain import safe_unpack, sha256, verify_directory
 
 
 class AssetTests(unittest.TestCase):

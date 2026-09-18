@@ -1,13 +1,13 @@
 {
-  "schema": "malecns-car-readout-v1",
-  "circuit_sha256": "36fbef3c33d2c41044932167623b5d19ec99fb50961dbb0cd240bf005d8beb5f",
+  "schema": "malecns-rover-readout-v1",
+  "circuit_sha256": "fd701839af4c179a0a5da5537d9af7153d32da24d641a2d32462043372ae68c8",
   "seed": 2718,
   "training_samples": 6000,
   "validation_samples": 1000,
   "validation_rmse": [
-    0.00042576812345003777,
-    0.00033338542719295566,
-    0.0001890713824201678
+    0.0004257681234400708,
+    0.0003333854272026952,
+    0.00018907138238946858
   ],
   "outputs": [
     "target_bearing",

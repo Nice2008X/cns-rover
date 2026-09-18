@@ -1,4 +1,4 @@
-"""Regression tests for the independently sourced MaleCNS car controller."""
+"""Regression tests for the independently sourced MaleCNS rover controller."""
 import importlib.util
 import json
 from pathlib import Path
@@ -6,22 +6,22 @@ import shutil
 import tempfile
 import unittest
 
-from cns_car.camera import Camera
-from cns_car.protocol import Observation
-from cns_car.runner import Session, replay, run
-from cns_car.scenario import Scenario
-from cns_car.simulator import Simulator
+from cns_rover.camera import Camera
+from cns_rover.protocol import Observation
+from cns_rover.runner import Session, replay, run
+from cns_rover.scenario import Scenario
+from cns_rover.simulator import Simulator
 
 AVAILABLE = (importlib.util.find_spec('numpy') is not None
              and importlib.util.find_spec('scipy') is not None
-             and Path('data/malecns-car/readout.npz').exists())
+             and Path('data/malecns-rover/readout.npz').exists())
 
 
-@unittest.skipUnless(AVAILABLE, 'Requires the independent MaleCNS car circuit and NumPy/SciPy')
+@unittest.skipUnless(AVAILABLE, 'Requires the independent MaleCNS rover circuit and NumPy/SciPy')
 class MaleCNSTests(unittest.TestCase):
     def controller(self, **kwargs):
-        from cns_car.malecns_controller import MaleCNSController
-        c = MaleCNSController(**kwargs)
+        from cns_rover.malecns_controller import MaleCNSRoverController
+        c = MaleCNSRoverController(**kwargs)
         c.reset('Find the red ball')
         return c
 
@@ -33,7 +33,7 @@ class MaleCNSTests(unittest.TestCase):
         self.assertEqual(m['provenance']['source'], 'Janelia public flat snapshot')
         self.assertGreater(m['anatomical_edges'], 10000)
         self.assertIn('R/neuprint.R', m['vendor_sha256'])
-        with np.load('data/malecns-car/anatomy.npz', allow_pickle=False) as a:
+        with np.load('data/malecns-rover/anatomy.npz', allow_pickle=False) as a:
             self.assertEqual(len(a['pre']), m['anatomical_edges'])
             self.assertTrue((a['synapses'] >= 5).all())
             self.assertEqual(len(set(a['body_ids'])), len(a['body_ids']))
@@ -77,12 +77,12 @@ class MaleCNSTests(unittest.TestCase):
             c.act(Observation(b'bad', 96, 72, .1))
 
     def test_missing_corrupt_and_mismatched_models_are_rejected(self):
-        from cns_car.malecns_controller import RateCircuit
-        from cns_car.malecns_data import digest
+        from cns_rover.malecns_controller import RateCircuit
+        from cns_rover.malecns_data import digest
         with tempfile.TemporaryDirectory() as temp:
             with self.assertRaisesRegex(ValueError, 'prepare-malecns'):
                 RateCircuit(temp)
-            shutil.copytree('data/malecns-car', temp, dirs_exist_ok=True)
+            shutil.copytree('data/malecns-rover', temp, dirs_exist_ok=True)
             path = Path(temp) / 'manifest.json'
             m = json.loads(path.read_text())
             m['files']['feed.npz'] = '0' * 64
@@ -149,10 +149,10 @@ class MaleCNSTests(unittest.TestCase):
         self.assertEqual(result['collisions'], 0)
 
     def test_workbench_selection_calibration_and_recording(self):
-        from cns_car.controllers import BaselineController
-        from cns_car.workbench import Workbench
+        from cns_rover.controllers import BaselineRoverController
+        from cns_rover.workbench import Workbench
         with tempfile.TemporaryDirectory() as temp:
-            bench = Workbench(Scenario(), BaselineController, temp)
+            bench = Workbench(Scenario(), BaselineRoverController, temp)
             bench.action('configure', {'controller': 'malecns',
                                       'sensor': {'width': 160, 'height': 120, 'fov': 90},
                                       'vehicle': {'wheelbase': .3, 'max_steering_degrees': 25}})
@@ -174,7 +174,7 @@ class SnapshotDownloadTests(unittest.TestCase):
         import hashlib
         import io
         from unittest.mock import patch
-        from cns_car import malecns_data as data
+        from cns_rover import malecns_data as data
         good = b'original-source-data'
         class Response(io.BytesIO):
             headers = {'Content-Length': str(len(good))}
@@ -200,18 +200,18 @@ class ExportImportTests(unittest.TestCase):
         import csv
         import numpy as np
         from scipy import sparse
-        from cns_car.malecns_data import build_circuit
+        from cns_rover.malecns_data import build_circuit
         # This checks the R exporter file contract; it does not execute R.
         with tempfile.TemporaryDirectory() as temp:
             source, output = Path(temp) / 'export', Path(temp) / 'model'
             source.mkdir()
             (source / 'export.json').write_text(json.dumps({'dataset': 'male-cns:v1.0', 'source': 'natverse/malecns'}))
-            neurons = json.loads(Path('data/malecns-car/neurons.json').read_text())
+            neurons = json.loads(Path('data/malecns-rover/neurons.json').read_text())
             with (source / 'neurons.csv').open('w') as f:
                 writer = csv.DictWriter(f, fieldnames=['bodyId', 'type', 'somaSide', 'superclass'])
                 writer.writeheader()
                 writer.writerows(neurons)
-            with np.load('data/malecns-car/anatomy.npz', allow_pickle=False) as a:
+            with np.load('data/malecns-rover/anatomy.npz', allow_pickle=False) as a:
                 with (source / 'edges.csv').open('w') as f:
                     writer = csv.writer(f)
                     writer.writerow(['body_pre', 'body_post', 'weight'])
@@ -220,4 +220,4 @@ class ExportImportTests(unittest.TestCase):
             self.assertEqual(info['anatomical_edges'], 29583)
             for name in ['feed.npz', 'recurrent.npz']:
                 np.testing.assert_allclose(sparse.load_npz(output / name).toarray(),
-                                           sparse.load_npz(Path('data/malecns-car') / name).toarray())
+                                           sparse.load_npz(Path('data/malecns-rover') / name).toarray())

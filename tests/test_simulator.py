@@ -2,12 +2,12 @@ import math
 from pathlib import Path
 import tempfile
 import unittest
-from cns_car.camera import Camera, png
-from cns_car.controllers import BaselineController
-from cns_car.protocol import Observation, VehicleCommand
-from cns_car.runner import Session, run, replay
-from cns_car.scenario import Scenario, randomized
-from cns_car.simulator import Simulator
+from cns_rover.camera import Camera, png
+from cns_rover.controllers import BaselineRoverController
+from cns_rover.protocol import Observation, VehicleCommand
+from cns_rover.runner import Session, run, replay
+from cns_rover.scenario import Scenario, randomized
+from cns_rover.simulator import Simulator
 
 
 class PhysicsTests(unittest.TestCase):
@@ -107,7 +107,7 @@ class IntegrationTests(unittest.TestCase):
     def test_success_and_exact_replay(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp)/"run"
-            result = run(Scenario(), BaselineController(), path, frames=True)
+            result = run(Scenario(), BaselineRoverController(), path, frames=True)
             self.assertEqual(result["status"], "success")
             self.assertEqual(result["collisions"], 0)
             self.assertLessEqual(result["final_target_distance"], .5)

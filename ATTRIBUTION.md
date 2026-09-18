@@ -11,7 +11,7 @@ revision 18933f06a9e80e9f40c503b2d58b54ab78e9283b.
 Derived assets are CC BY 4.0. Original attribution files are retained under
 data/brain and copied alongside the derived car encoder.
 
-CNS Car modifications: select 512 visually driven neurons from the published
+CNS Rover modifications: select 512 visually driven neurons from the published
 signed retinal circuit, renormalize the selected incoming weights, introduce
 red-salience image encoding and abstract rate dynamics, and fit a new car
 steering/throttle readout. These are engineering assumptions and are not
@@ -23,9 +23,9 @@ vendor/malecns with its GPL-3.0 license. No R code is incorporated into the Pyth
 vendor/fly-brain-codex with its MIT license. Neither vendor tree is required
 at runtime.
 
-## Independent native MaleCNS car model
+## Independent native MaleCNS rover model
 
-`data/malecns-car/` is derived directly from Janelia's original MaleCNS v1.0
+`data/malecns-rover/` is derived directly from Janelia's original MaleCNS v1.0
 flat connectivity and annotations, not from Fly Brain Codex. Source URLs and
 SHA-256 values, plus hashes of the inspected vendored natverse/malecns files,
 are recorded in its manifest. The optional R exporter calls the vendored package.

@@ -5,13 +5,13 @@ import tempfile
 import time
 import unittest
 from fastapi.testclient import TestClient
-from cns_car.camera import Camera, png
-from cns_car.controllers import BaselineController
-from cns_car.runner import replay
-from cns_car.scenario import Scenario
-from cns_car.server import create_app
-from cns_car.simulator import Simulator
-from cns_car.workbench import Experiment, RunStore, Workbench, validate_config
+from cns_rover.camera import Camera, png
+from cns_rover.controllers import BaselineRoverController
+from cns_rover.runner import replay
+from cns_rover.scenario import Scenario
+from cns_rover.server import create_app
+from cns_rover.simulator import Simulator
+from cns_rover.workbench import Experiment, RunStore, Workbench, validate_config
 
 
 class RecordingTests(unittest.TestCase):
@@ -19,7 +19,7 @@ class RecordingTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             config = validate_config({"scenario": Scenario(timeout=.5).to_dict(), "vehicle": {"wheelbase": .3}})
             store = RunStore(temp)
-            experiment = Experiment(config, BaselineController, store)
+            experiment = Experiment(config, BaselineRoverController, store)
             while not experiment.finished:
                 experiment.tick()
             records = store.records(experiment.id)
@@ -40,7 +40,7 @@ class RecordingTests(unittest.TestCase):
 
     def test_reset_and_empty_stopped_runs_are_replayable(self):
         with tempfile.TemporaryDirectory() as temp:
-            bench = Workbench(Scenario(), BaselineController, temp)
+            bench = Workbench(Scenario(), BaselineRoverController, temp)
             old = bench.current
             bench.action('reset', {})
             self.assertEqual(replay(old.path)['result']['reason'], 'reset')
@@ -49,7 +49,7 @@ class RecordingTests(unittest.TestCase):
 
     def test_bad_config_does_not_end_existing_run(self):
         with tempfile.TemporaryDirectory() as temp:
-            bench = Workbench(Scenario(), BaselineController, temp)
+            bench = Workbench(Scenario(), BaselineRoverController, temp)
             old = bench.current
             with self.assertRaises(ValueError):
                 bench.action('configure', {'scenario': {'start': [-1, 2, 0]}})
@@ -60,7 +60,7 @@ class RecordingTests(unittest.TestCase):
 
     def test_batch_matches_seeds_and_persists_results(self):
         with tempfile.TemporaryDirectory() as temp:
-            bench = Workbench(Scenario(timeout=.2), BaselineController, temp)
+            bench = Workbench(Scenario(timeout=.2), BaselineRoverController, temp)
             bench.start_batch({'seed': 1000, 'count': 2, 'controllers': ['baseline']})
             bench.batch_thread.join(10)
             self.assertEqual(bench.batch['status'], 'complete')
@@ -72,7 +72,7 @@ class RecordingTests(unittest.TestCase):
 class ApiTests(unittest.TestCase):
     def test_controls_stream_persistence_and_validation(self):
         with tempfile.TemporaryDirectory() as temp:
-            app = create_app(Scenario(), BaselineController, temp)
+            app = create_app(Scenario(), BaselineRoverController, temp)
             with TestClient(app) as client:
                 initial = client.get('/api/state').json()
                 self.assertFalse(initial['running'])
@@ -101,7 +101,7 @@ class ApiTests(unittest.TestCase):
 
     def test_manual_watchdog_brakes_stale_commands(self):
         with tempfile.TemporaryDirectory() as temp:
-            app = create_app(Scenario(), BaselineController, temp)
+            app = create_app(Scenario(), BaselineRoverController, temp)
             with TestClient(app) as client:
                 client.post('/api/manual', json={'enabled':True})
                 client.post('/api/command', json={'steering':0, 'throttle':.2})

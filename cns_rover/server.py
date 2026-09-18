@@ -24,7 +24,7 @@ def create_app(scenario, factory, root="runs/workbench", controller="baseline", 
         with bench.lock:
             bench.current.finish("server_shutdown")
 
-    app = FastAPI(title="MaleCNS Simulator", lifespan=lifespan)
+    app = FastAPI(title="CNS Rover", lifespan=lifespan)
     app.state.workbench = bench
 
     def origin_allowed(origin, host):

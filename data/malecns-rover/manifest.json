@@ -1,5 +1,5 @@
 {
-  "schema": "malecns-car-circuit-v1",
+  "schema": "malecns-rover-circuit-v1",
   "dataset": "male-cns:v1.0",
   "provenance": {
     "source": "Janelia public flat snapshot",

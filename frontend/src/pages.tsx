@@ -493,7 +493,7 @@ export function ConfigPage({
                 ],
                 [
                   "malecns",
-                  "MaleCNS car + avoidance",
+                  "MaleCNS rover + avoidance",
                   "New circuit from original MaleCNS v1.0 connectivity, with RGB obstacle avoidance and braking.",
                 ],
                 [

@@ -1,8 +1,8 @@
-"""Engineering baseline; no claim to emulate the MaleCNS connectome."""
+"""Engineering rover baseline; no claim to emulate the MaleCNS connectome."""
 from .protocol import VehicleCommand
 
 
-class BaselineController:
+class BaselineRoverController:
     def reset(self, task):
         if "red ball" not in task.lower():
             raise ValueError("Baseline supports only the red-ball task")
@@ -35,10 +35,10 @@ class BaselineController:
 
 def load_controller(spec="baseline"):
     if spec == "baseline":
-        controller = BaselineController()
+        controller = BaselineRoverController()
     elif spec in ("malecns", "malecns-ablated"):
-        from .malecns_controller import MaleCNSController
-        controller = MaleCNSController(ablated=spec == "malecns-ablated")
+        from .malecns_controller import MaleCNSRoverController
+        controller = MaleCNSRoverController(ablated=spec == "malecns-ablated")
     else:
         import importlib
         module, name = spec.split(":", 1)

@@ -1,0 +1,2814 @@
+{
+  "schema": "malecns-rover-evaluation-v1",
+  "summary": {
+    "baseline": {
+      "obstacle": {
+        "runs": 10,
+        "successes": 4,
+        "collisions": 1,
+        "timeouts": 5,
+        "mean_inference_ms": 0.5247732702479627
+      },
+      "random": {
+        "runs": 10,
+        "successes": 10,
+        "collisions": 0,
+        "timeouts": 0,
+        "mean_inference_ms": 0.5852666232340598
+      }
+    },
+    "malecns": {
+      "obstacle": {
+        "runs": 10,
+        "successes": 10,
+        "collisions": 0,
+        "timeouts": 0,
+        "mean_inference_ms": 2.730777302844795
+      },
+      "random": {
+        "runs": 10,
+        "successes": 10,
+        "collisions": 0,
+        "timeouts": 0,
+        "mean_inference_ms": 4.635455852260312
+      }
+    },
+    "malecns-ablated": {
+      "obstacle": {
+        "runs": 10,
+        "successes": 0,
+        "collisions": 3,
+        "timeouts": 7,
+        "mean_inference_ms": 5.788198064132388
+      },
+      "random": {
+        "runs": 10,
+        "successes": 0,
+        "collisions": 0,
+        "timeouts": 10,
+        "mean_inference_ms": 8.249862385004082
+      }
+    }
+  },
+  "runs": [
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9900",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.356172438065301,
+          7.968201929138765
+        ],
+        "target": [
+          8,
+          5.567209199587128,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.199726997377098,
+            5.541239582179728,
+            0.4942366430908085
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 16.170300000000516,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.2699999999999998,
+      "average_speed": 0.2695050000000086,
+      "steering_variation": 0.5235987755982985,
+      "final_target_distance": 6.442283005551675,
+      "modes": {
+        "SEARCH": 600
+      },
+      "mean_inference_ms": 0.49365445663018664
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9901",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.204556548431174,
+          3.7238664331060445
+        ],
+        "target": [
+          8,
+          4.879652201562987,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.0076864043601015,
+            5.151128737248951,
+            0.355392484086714
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 16.17030000000055,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.2699999999999998,
+      "average_speed": 0.2695050000000092,
+      "steering_variation": 0.5235987755982985,
+      "final_target_distance": 6.45257188485422,
+      "modes": {
+        "SEARCH": 600
+      },
+      "mean_inference_ms": 0.5052413849959217
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9902",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.031006997467209,
+          11.417046488933082
+        ],
+        "target": [
+          8,
+          5.773355694297073,
+          0.15
+        ],
+        "obstacles": [
+          [
+            3.5196906302063944,
+            6.070211836275332,
+            0.4191328429275053
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 16.170300000000534,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.2699999999999998,
+      "average_speed": 0.2695050000000089,
+      "steering_variation": 0.5235987755982985,
+      "final_target_distance": 6.533295812678101,
+      "modes": {
+        "SEARCH": 600
+      },
+      "mean_inference_ms": 0.49483287831814476
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9903",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.034363497477333,
+          -0.2448064697559964
+        ],
+        "target": [
+          8,
+          4.286094575333498,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.019466258118735,
+            4.063896234098078,
+            0.43488405603543473
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 16.17030000000056,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.2699999999999998,
+      "average_speed": 0.2695050000000093,
+      "steering_variation": 0.5235987755982985,
+      "final_target_distance": 6.343314338562776,
+      "modes": {
+        "SEARCH": 600
+      },
+      "mean_inference_ms": 0.5013387682993198
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9904",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.67620258578111,
+          2.6523169826040096
+        ],
+        "target": [
+          8,
+          4.496308166494124,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.2717728196019324,
+            4.04742952485241,
+            0.30644823477425964
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 11.3,
+      "distance": 6.03268522448854,
+      "collisions": 0,
+      "decisions": 113,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.5338659490697822,
+      "steering_variation": 0.19224290298250404,
+      "final_target_distance": 0.4699979230332246,
+      "modes": {
+        "APPROACH": 107,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5519333450798207
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9905",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.872154110173856,
+          4.637613815730308
+        ],
+        "target": [
+          8,
+          4.733423038261165,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.536145967328274,
+            5.5034801017854456,
+            0.44097911807780166
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 11.3,
+      "distance": 6.0326852244883415,
+      "collisions": 0,
+      "decisions": 113,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.5338659490697647,
+      "steering_variation": 0.2429261052643663,
+      "final_target_distance": 0.46916676868197305,
+      "modes": {
+        "APPROACH": 107,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.551886079662345
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9906",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.8487479504162785,
+          9.850626105213223
+        ],
+        "target": [
+          8,
+          6.09669837900685,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.665615603979582,
+            5.945590441778156,
+            0.35281840841464984
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 16.1703000000006,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.2699999999999998,
+      "average_speed": 0.26950500000001004,
+      "steering_variation": 0.5235987755982985,
+      "final_target_distance": 6.461953550027821,
+      "modes": {
+        "SEARCH": 600
+      },
+      "mean_inference_ms": 0.4987927416777893
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9907",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.278958046030546,
+          -8.16185888863059
+        ],
+        "target": [
+          8,
+          6.446955064044627,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.084531729070691,
+            5.633981437656945,
+            0.4183227499552486
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 11.3,
+      "distance": 6.032685224488528,
+      "collisions": 0,
+      "decisions": 113,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.5338659490697812,
+      "steering_variation": 0.41248168272172214,
+      "final_target_distance": 0.4704936671751152,
+      "modes": {
+        "APPROACH": 107,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5708861327282616
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9908",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.878859137556523,
+          8.902664731671365
+        ],
+        "target": [
+          8,
+          5.649309817340806,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.099451640995964,
+            6.4435558533505475,
+            0.31825623353554244
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 11.4,
+      "distance": 6.041685367602135,
+      "collisions": 0,
+      "decisions": 114,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.5299724006668539,
+      "steering_variation": 0.46702647005446873,
+      "final_target_distance": 0.46363847492212684,
+      "modes": {
+        "APPROACH": 108,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5646508947664411
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "obstacle_9909",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.025869823926958,
+          -10.308006562178512
+        ],
+        "target": [
+          8,
+          5.761410617510434,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.657407978110312,
+            5.487546972061852,
+            0.45874761754933396
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "collision",
+      "time": 4.81,
+      "distance": 2.722304726328269,
+      "collisions": 1,
+      "decisions": 49,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.5659677185713656,
+      "steering_variation": 2.2149503740577323,
+      "final_target_distance": 3.7901928690054847,
+      "modes": {
+        "SEARCH": 6,
+        "APPROACH": 43
+      },
+      "mean_inference_ms": 0.5145160203213965
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10000",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          6.223186360153762,
+          6.023820809743822,
+          -179.02483125095978
+        ],
+        "target": [
+          7.489294107320348,
+          5.037880499724762,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 6.5,
+      "distance": 1.9295291176021196,
+      "collisions": 0,
+      "decisions": 65,
+      "reversals": 0,
+      "maximum_speed": 0.6071566888333436,
+      "average_speed": 0.29685063347724916,
+      "steering_variation": 1.0862559231931672,
+      "final_target_distance": 0.464839595711776,
+      "modes": {
+        "SEARCH": 30,
+        "APPROACH": 29,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.6116374615885434
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10001",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.850320521745706,
+          7.598076991352954,
+          -137.0068222913817
+        ],
+        "target": [
+          5.648219908057904,
+          6.151142601438862,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 6.1,
+      "distance": 2.1448539816982852,
+      "collisions": 0,
+      "decisions": 61,
+      "reversals": 0,
+      "maximum_speed": 0.6299825840536839,
+      "average_speed": 0.3516154068357844,
+      "steering_variation": 1.0938060138313797,
+      "final_target_distance": 0.466232767487762,
+      "modes": {
+        "SEARCH": 18,
+        "APPROACH": 37,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.6163737048974908
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10002",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          4.119379295531797,
+          1.855612909560194,
+          -167.47237881396845
+        ],
+        "target": [
+          8.42278172454873,
+          1.1136521999027584,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 11.1,
+      "distance": 4.797547862278188,
+      "collisions": 0,
+      "decisions": 111,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.4322115191241611,
+      "steering_variation": 1.0990286797265754,
+      "final_target_distance": 0.4625256075482967,
+      "modes": {
+        "SEARCH": 31,
+        "APPROACH": 74,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5873652432808183
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10003",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.98667128102489,
+          1.039347912150638,
+          -119.80853295665096
+        ],
+        "target": [
+          4.180221516127603,
+          4.576364573254902,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 15.2,
+      "distance": 6.648847802332826,
+      "collisions": 0,
+      "decisions": 152,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.43742419752189643,
+      "steering_variation": 1.1077697175689474,
+      "final_target_distance": 0.4658002531934199,
+      "modes": {
+        "SEARCH": 52,
+        "APPROACH": 94,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5553182696758086
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10004",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          5.853450446346163,
+          6.120224764227811,
+          179.27499645651983
+        ],
+        "target": [
+          7.619013243392987,
+          6.75802865799965,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 8.6,
+      "distance": 2.872110230038133,
+      "collisions": 0,
+      "decisions": 86,
+      "reversals": 0,
+      "maximum_speed": 0.6299992617178742,
+      "average_speed": 0.3339663058183876,
+      "steering_variation": 1.0947088203681496,
+      "final_target_distance": 0.46836144416670084,
+      "modes": {
+        "SEARCH": 42,
+        "APPROACH": 38,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5883048720745645
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10005",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.4004758508781,
+          5.2596692243826055,
+          -17.344391693268335
+        ],
+        "target": [
+          3.19723781771833,
+          3.998623072031072,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 12.8,
+      "distance": 5.470691550475303,
+      "collisions": 0,
+      "decisions": 128,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.427397777380883,
+      "steering_variation": 1.1115390052504723,
+      "final_target_distance": 0.46635004416609355,
+      "modes": {
+        "SEARCH": 43,
+        "APPROACH": 79,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.573673968730759
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10006",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.9056469235319238,
+          2.3672221708883967,
+          107.55120893450231
+        ],
+        "target": [
+          8.803079701915514,
+          6.07394209725156,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 18.6,
+      "distance": 8.567985232014786,
+      "collisions": 0,
+      "decisions": 186,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.46064436731262287,
+      "steering_variation": 1.09128684008957,
+      "final_target_distance": 0.4655810232821177,
+      "modes": {
+        "SEARCH": 58,
+        "APPROACH": 122,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5582314516070783
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10007",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.0523355461129222,
+          3.3044529644172513,
+          15.70812152118026
+        ],
+        "target": [
+          3.675166808737476,
+          8.07011594069721,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 9.2,
+      "distance": 4.435293748419059,
+      "collisions": 0,
+      "decisions": 92,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.48209714656728897,
+      "steering_variation": 1.1031625152250752,
+      "final_target_distance": 0.4677110762947588,
+      "modes": {
+        "SEARCH": 9,
+        "APPROACH": 77,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5856170218284324
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10008",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.158436473011945,
+          4.7013359011932065,
+          -9.061102070770431
+        ],
+        "target": [
+          3.5478044923887015,
+          8.27553936887005,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 7.9,
+      "distance": 3.5167350556997414,
+      "collisions": 0,
+      "decisions": 79,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.4451563361645242,
+      "steering_variation": 1.0916438923200755,
+      "final_target_distance": 0.4688375164776598,
+      "modes": {
+        "SEARCH": 12,
+        "APPROACH": 61,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5961149366998189
+    },
+    {
+      "controller": "baseline",
+      "scenario": {
+        "name": "random_10009",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.549881351518941,
+          3.7567887968110707,
+          -141.90864186202992
+        ],
+        "target": [
+          7.746912031851321,
+          4.256698485863555,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 10.6,
+      "distance": 4.551735367602143,
+      "collisions": 0,
+      "decisions": 106,
+      "reversals": 0,
+      "maximum_speed": 0.6299999999999994,
+      "average_speed": 0.4294089969435984,
+      "steering_variation": 1.096006339621432,
+      "final_target_distance": 0.46334919719962986,
+      "modes": {
+        "SEARCH": 29,
+        "APPROACH": 71,
+        "STOP": 6
+      },
+      "mean_inference_ms": 0.5800293019572839
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9900",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.356172438065301,
+          7.968201929138765
+        ],
+        "target": [
+          8,
+          5.567209199587128,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.199726997377098,
+            5.541239582179728,
+            0.4942366430908085
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 36.59,
+      "distance": 11.479837393411636,
+      "collisions": 0,
+      "decisions": 366,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.3137424813722775,
+      "steering_variation": 1.620021799989127,
+      "final_target_distance": 0.4612277994500197,
+      "modes": {
+        "SEARCH": 226,
+        "APPROACH": 134,
+        "STOP": 6
+      },
+      "mean_inference_ms": 4.875390117471238
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9901",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.204556548431174,
+          3.7238664331060445
+        ],
+        "target": [
+          8,
+          4.879652201562987,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.0076864043601015,
+            5.151128737248951,
+            0.355392484086714
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 39.09,
+      "distance": 11.141032912736677,
+      "collisions": 0,
+      "decisions": 391,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.2850097956699073,
+      "steering_variation": 1.6702315290263603,
+      "final_target_distance": 0.45409416415148113,
+      "modes": {
+        "SEARCH": 222,
+        "AVOID": 18,
+        "APPROACH": 145,
+        "STOP": 6
+      },
+      "mean_inference_ms": 3.872369948833547
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9902",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.031006997467209,
+          11.417046488933082
+        ],
+        "target": [
+          8,
+          5.773355694297073,
+          0.15
+        ],
+        "obstacles": [
+          [
+            3.5196906302063944,
+            6.070211836275332,
+            0.4191328429275053
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 38.59,
+      "distance": 11.40101750791866,
+      "collisions": 0,
+      "decisions": 386,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.2954396866524659,
+      "steering_variation": 1.6214693847266057,
+      "final_target_distance": 0.4543923147433239,
+      "modes": {
+        "SEARCH": 228,
+        "APPROACH": 152,
+        "STOP": 6
+      },
+      "mean_inference_ms": 3.79916415024664
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9903",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.034363497477333,
+          -0.2448064697559964
+        ],
+        "target": [
+          8,
+          4.286094575333498,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.019466258118735,
+            4.063896234098078,
+            0.43488405603543473
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.69,
+      "distance": 6.2199424039691085,
+      "collisions": 0,
+      "decisions": 247,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.2519215230445163,
+      "steering_variation": 0.7363411164223302,
+      "final_target_distance": 0.453333026432638,
+      "modes": {
+        "SEARCH": 63,
+        "AVOID": 39,
+        "APPROACH": 139,
+        "STOP": 6
+      },
+      "mean_inference_ms": 2.033142085013162
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9904",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.67620258578111,
+          2.6523169826040096
+        ],
+        "target": [
+          8,
+          4.496308166494124,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.2717728196019324,
+            4.04742952485241,
+            0.30644823477425964
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.89,
+      "distance": 6.047407706135781,
+      "collisions": 0,
+      "decisions": 249,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.24296535581099962,
+      "steering_variation": 0.4124041772316656,
+      "final_target_distance": 0.4566019268949611,
+      "modes": {
+        "APPROACH": 242,
+        "AVOID": 1,
+        "STOP": 6
+      },
+      "mean_inference_ms": 1.8846913774770846
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9905",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.872154110173856,
+          4.637613815730308
+        ],
+        "target": [
+          8,
+          4.733423038261165,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.536145967328274,
+            5.5034801017854456,
+            0.44097911807780166
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.59,
+      "distance": 6.044095608625192,
+      "collisions": 0,
+      "decisions": 246,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.2457948600498248,
+      "steering_variation": 0.523262255135889,
+      "final_target_distance": 0.46035492634912156,
+      "modes": {
+        "APPROACH": 200,
+        "AVOID": 40,
+        "STOP": 6
+      },
+      "mean_inference_ms": 1.9714222805260961
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9906",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.8487479504162785,
+          9.850626105213223
+        ],
+        "target": [
+          8,
+          6.09669837900685,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.665615603979582,
+            5.945590441778156,
+            0.35281840841464984
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.79,
+      "distance": 6.20255451743933,
+      "collisions": 0,
+      "decisions": 248,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.25020389340215127,
+      "steering_variation": 1.722960004364179,
+      "final_target_distance": 0.4603931807337464,
+      "modes": {
+        "SEARCH": 38,
+        "APPROACH": 126,
+        "AVOID": 78,
+        "STOP": 6
+      },
+      "mean_inference_ms": 2.6776349596847497
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9907",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.278958046030546,
+          -8.16185888863059
+        ],
+        "target": [
+          8,
+          6.446955064044627,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.084531729070691,
+            5.633981437656945,
+            0.4183227499552486
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 23.99,
+      "distance": 6.0504941414663245,
+      "collisions": 0,
+      "decisions": 240,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.25220900964845033,
+      "steering_variation": 0.7222686370635812,
+      "final_target_distance": 0.45460383626069056,
+      "modes": {
+        "APPROACH": 196,
+        "AVOID": 38,
+        "STOP": 6
+      },
+      "mean_inference_ms": 1.9942165375255172
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9908",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.878859137556523,
+          8.902664731671365
+        ],
+        "target": [
+          8,
+          5.649309817340806,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.099451640995964,
+            6.4435558533505475,
+            0.31825623353554244
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.29,
+      "distance": 6.051010678976806,
+      "collisions": 0,
+      "decisions": 243,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.24911530172815177,
+      "steering_variation": 0.7166818614627415,
+      "final_target_distance": 0.4543329173290813,
+      "modes": {
+        "APPROACH": 237,
+        "STOP": 6
+      },
+      "mean_inference_ms": 1.926088785971412
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "obstacle_9909",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.025869823926958,
+          -10.308006562178512
+        ],
+        "target": [
+          8,
+          5.761410617510434,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.657407978110312,
+            5.487546972061852,
+            0.45874761754933396
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 25.19,
+      "distance": 6.099268866079117,
+      "collisions": 0,
+      "decisions": 252,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999915,
+      "average_speed": 0.24213056236915906,
+      "steering_variation": 1.5883795406285701,
+      "final_target_distance": 0.45987978630869114,
+      "modes": {
+        "SEARCH": 30,
+        "APPROACH": 127,
+        "AVOID": 89,
+        "STOP": 6
+      },
+      "mean_inference_ms": 2.273652785698499
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10000",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          6.223186360153762,
+          6.023820809743822,
+          -179.02483125095978
+        ],
+        "target": [
+          7.489294107320348,
+          5.037880499724762,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 23.69,
+      "distance": 7.143518155789015,
+      "collisions": 0,
+      "decisions": 237,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.3015415008775439,
+      "steering_variation": 1.0653340951123473,
+      "final_target_distance": 0.4558780179366193,
+      "modes": {
+        "SEARCH": 111,
+        "APPROACH": 120,
+        "STOP": 6
+      },
+      "mean_inference_ms": 9.107366063290101
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10001",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.850320521745706,
+          7.598076991352954,
+          -137.0068222913817
+        ],
+        "target": [
+          5.648219908057904,
+          6.151142601438862,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 20.59,
+      "distance": 6.04187281504477,
+      "collisions": 0,
+      "decisions": 206,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.29343724210999367,
+      "steering_variation": 1.0594643056449422,
+      "final_target_distance": 0.45593729522726134,
+      "modes": {
+        "SEARCH": 105,
+        "APPROACH": 95,
+        "STOP": 6
+      },
+      "mean_inference_ms": 5.8869835145971985
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10002",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          4.119379295531797,
+          1.855612909560194,
+          -167.47237881396845
+        ],
+        "target": [
+          8.42278172454873,
+          1.1136521999027584,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 34.39,
+      "distance": 10.308279959572165,
+      "collisions": 0,
+      "decisions": 344,
+      "reversals": 0,
+      "maximum_speed": 0.35999998493009966,
+      "average_speed": 0.2997464367424299,
+      "steering_variation": 1.3837825358230151,
+      "final_target_distance": 0.46022734845545205,
+      "modes": {
+        "SEARCH": 120,
+        "AVOID": 8,
+        "APPROACH": 210,
+        "STOP": 6
+      },
+      "mean_inference_ms": 3.3126353546427962
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10003",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.98667128102489,
+          1.039347912150638,
+          -119.80853295665096
+        ],
+        "target": [
+          4.180221516127603,
+          4.576364573254902,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 24.79,
+      "distance": 6.289634021641402,
+      "collisions": 0,
+      "decisions": 248,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.2537165801388222,
+      "steering_variation": 1.2581237258310707,
+      "final_target_distance": 0.459262872175359,
+      "modes": {
+        "AVOID": 33,
+        "SEARCH": 61,
+        "APPROACH": 148,
+        "STOP": 6
+      },
+      "mean_inference_ms": 1.4215561250275934
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10004",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          5.853450446346163,
+          6.120224764227811,
+          179.27499645651983
+        ],
+        "target": [
+          7.619013243392987,
+          6.75802865799965,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 27.19,
+      "distance": 8.396394291148475,
+      "collisions": 0,
+      "decisions": 272,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.3088044976516541,
+      "steering_variation": 1.064695176199188,
+      "final_target_distance": 0.4537523936383438,
+      "modes": {
+        "SEARCH": 117,
+        "APPROACH": 149,
+        "STOP": 6
+      },
+      "mean_inference_ms": 8.390473547763122
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10005",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.4004758508781,
+          5.2596692243826055,
+          -17.344391693268335
+        ],
+        "target": [
+          3.19723781771833,
+          3.998623072031072,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 31.19,
+      "distance": 9.105216939804897,
+      "collisions": 0,
+      "decisions": 312,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.29192744276386334,
+      "steering_variation": 1.6615332047440485,
+      "final_target_distance": 0.4599127636830152,
+      "modes": {
+        "SEARCH": 68,
+        "AVOID": 45,
+        "APPROACH": 193,
+        "STOP": 6
+      },
+      "mean_inference_ms": 2.6547648493533416
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10006",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.9056469235319238,
+          2.3672221708883967,
+          107.55120893450231
+        ],
+        "target": [
+          8.803079701915514,
+          6.07394209725156,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 33.69,
+      "distance": 10.357307196174036,
+      "collisions": 0,
+      "decisions": 337,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.30742971790365203,
+      "steering_variation": 1.3008451125863905,
+      "final_target_distance": 0.4610813104743247,
+      "modes": {
+        "SEARCH": 106,
+        "AVOID": 1,
+        "APPROACH": 224,
+        "STOP": 6
+      },
+      "mean_inference_ms": 3.2917600148386597
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10007",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.0523355461129222,
+          3.3044529644172513,
+          15.70812152118026
+        ],
+        "target": [
+          3.675166808737476,
+          8.07011594069721,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 19.79,
+      "distance": 5.7393503251348434,
+      "collisions": 0,
+      "decisions": 198,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999545584,
+      "average_speed": 0.29001264907199814,
+      "steering_variation": 1.0574260552762023,
+      "final_target_distance": 0.45496055364133825,
+      "modes": {
+        "SEARCH": 85,
+        "APPROACH": 107,
+        "STOP": 6
+      },
+      "mean_inference_ms": 4.249718414140454
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10008",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.158436473011945,
+          4.7013359011932065,
+          -9.061102070770431
+        ],
+        "target": [
+          3.5478044923887015,
+          8.27553936887005,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 19.49,
+      "distance": 5.6505913740406415,
+      "collisions": 0,
+      "decisions": 195,
+      "reversals": 0,
+      "maximum_speed": 0.359999994766004,
+      "average_speed": 0.2899225948712489,
+      "steering_variation": 1.0558627553876194,
+      "final_target_distance": 0.4611541005431789,
+      "modes": {
+        "SEARCH": 93,
+        "APPROACH": 96,
+        "STOP": 6
+      },
+      "mean_inference_ms": 4.639735241014419
+    },
+    {
+      "controller": "malecns",
+      "scenario": {
+        "name": "random_10009",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.549881351518941,
+          3.7567887968110707,
+          -141.90864186202992
+        ],
+        "target": [
+          7.746912031851321,
+          4.256698485863555,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "success",
+      "reason": "target_reached_and_stopped",
+      "time": 29.39,
+      "distance": 8.78165451992105,
+      "collisions": 0,
+      "decisions": 294,
+      "reversals": 0,
+      "maximum_speed": 0.35999999999999976,
+      "average_speed": 0.29879736372647325,
+      "steering_variation": 1.0680713608380006,
+      "final_target_distance": 0.45882991737905937,
+      "modes": {
+        "SEARCH": 109,
+        "APPROACH": 179,
+        "STOP": 6
+      },
+      "mean_inference_ms": 3.3995653979354445
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9900",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.356172438065301,
+          7.968201929138765
+        ],
+        "target": [
+          8,
+          5.567209199587128,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.199726997377098,
+            5.541239582179728,
+            0.4942366430908085
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "collision",
+      "time": 44.07,
+      "distance": 14.924673788806459,
+      "collisions": 1,
+      "decisions": 441,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3386583569050705,
+      "steering_variation": 2.8741646031508177,
+      "final_target_distance": 0.35091290481623966,
+      "modes": {
+        "SEARCH": 405,
+        "APPROACH": 36
+      },
+      "mean_inference_ms": 6.793268943306893
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9901",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.204556548431174,
+          3.7238664331060445
+        ],
+        "target": [
+          8,
+          4.879652201562987,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.0076864043601015,
+            5.151128737248951,
+            0.355392484086714
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.0315808282386,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.31719301380397663,
+      "steering_variation": 4.851105028818306,
+      "final_target_distance": 2.2985430329242607,
+      "modes": {
+        "SEARCH": 536,
+        "AVOID": 18,
+        "BLOCKED": 1,
+        "APPROACH": 45
+      },
+      "mean_inference_ms": 6.892600016679656
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9902",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.031006997467209,
+          11.417046488933082
+        ],
+        "target": [
+          8,
+          5.773355694297073,
+          0.15
+        ],
+        "obstacles": [
+          [
+            3.5196906302063944,
+            6.070211836275332,
+            0.4191328429275053
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "collision",
+      "time": 48.31,
+      "distance": 14.833434605878468,
+      "collisions": 1,
+      "decisions": 484,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.307046876544783,
+      "steering_variation": 4.210922231264073,
+      "final_target_distance": 0.35009076545488366,
+      "modes": {
+        "SEARCH": 420,
+        "AVOID": 11,
+        "BLOCKED": 1,
+        "APPROACH": 52
+      },
+      "mean_inference_ms": 5.5572400660953125
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9903",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.034363497477333,
+          -0.2448064697559964
+        ],
+        "target": [
+          8,
+          4.286094575333498,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.019466258118735,
+            4.063896234098078,
+            0.43488405603543473
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "collision",
+      "time": 45.07,
+      "distance": 15.00855326088475,
+      "collisions": 1,
+      "decisions": 451,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.333005397401481,
+      "steering_variation": 2.8626792369256098,
+      "final_target_distance": 0.35024259816261616,
+      "modes": {
+        "SEARCH": 373,
+        "APPROACH": 66,
+        "AVOID": 12
+      },
+      "mean_inference_ms": 7.9244529268325685
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9904",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.67620258578111,
+          2.6523169826040096
+        ],
+        "target": [
+          8,
+          4.496308166494124,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.2717728196019324,
+            4.04742952485241,
+            0.30644823477425964
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.63927473898683,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.32732124564978055,
+      "steering_variation": 2.452852775717266,
+      "final_target_distance": 1.3867471796438033,
+      "modes": {
+        "APPROACH": 198,
+        "SEARCH": 352,
+        "AVOID": 50
+      },
+      "mean_inference_ms": 5.927504089989573
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9905",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          4.872154110173856,
+          4.637613815730308
+        ],
+        "target": [
+          8,
+          4.733423038261165,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.536145967328274,
+            5.5034801017854456,
+            0.44097911807780166
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 18.988362553894884,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3164727092315814,
+      "steering_variation": 2.460904850122553,
+      "final_target_distance": 0.493809775767514,
+      "modes": {
+        "APPROACH": 204,
+        "SEARCH": 341,
+        "AVOID": 55
+      },
+      "mean_inference_ms": 4.625201748346323
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9906",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.8487479504162785,
+          9.850626105213223
+        ],
+        "target": [
+          8,
+          6.09669837900685,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.665615603979582,
+            5.945590441778156,
+            0.35281840841464984
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.374970033883667,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.32291616723139444,
+      "steering_variation": 3.0506107933505926,
+      "final_target_distance": 1.031817575079776,
+      "modes": {
+        "SEARCH": 406,
+        "APPROACH": 131,
+        "AVOID": 63
+      },
+      "mean_inference_ms": 5.402436021692362
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9907",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.278958046030546,
+          -8.16185888863059
+        ],
+        "target": [
+          8,
+          6.446955064044627,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.084531729070691,
+            5.633981437656945,
+            0.4183227499552486
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.179830593348147,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3196638432224691,
+      "steering_variation": 2.4209298023832604,
+      "final_target_distance": 1.452685266665446,
+      "modes": {
+        "APPROACH": 184,
+        "AVOID": 44,
+        "SEARCH": 372
+      },
+      "mean_inference_ms": 3.416943743328981
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9908",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          5.878859137556523,
+          8.902664731671365
+        ],
+        "target": [
+          8,
+          5.649309817340806,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.099451640995964,
+            6.4435558533505475,
+            0.31825623353554244
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.13605181552817,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3189341969254695,
+      "steering_variation": 2.423790656294323,
+      "final_target_distance": 1.909653952524552,
+      "modes": {
+        "APPROACH": 203,
+        "AVOID": 36,
+        "SEARCH": 361
+      },
+      "mean_inference_ms": 6.1413325000209325
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "obstacle_9909",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          1.5,
+          6.025869823926958,
+          -10.308006562178512
+        ],
+        "target": [
+          8,
+          5.761410617510434,
+          0.15
+        ],
+        "obstacles": [
+          [
+            4.657407978110312,
+            5.487546972061852,
+            0.45874761754933396
+          ]
+        ],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.602785588165897,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3267130931360983,
+      "steering_variation": 2.9745690958088833,
+      "final_target_distance": 2.163945557567267,
+      "modes": {
+        "SEARCH": 419,
+        "APPROACH": 166,
+        "AVOID": 15
+      },
+      "mean_inference_ms": 5.201000585031276
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10000",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          6.223186360153762,
+          6.023820809743822,
+          -179.02483125095978
+        ],
+        "target": [
+          7.489294107320348,
+          5.037880499724762,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 21.55182883509633,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3591971472516055,
+      "steering_variation": 3.873662025277948,
+      "final_target_distance": 0.7742142306263922,
+      "modes": {
+        "SEARCH": 558,
+        "APPROACH": 42
+      },
+      "mean_inference_ms": 10.754851895004927
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10001",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.850320521745706,
+          7.598076991352954,
+          -137.0068222913817
+        ],
+        "target": [
+          5.648219908057904,
+          6.151142601438862,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 21.551828835096376,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3591971472516063,
+      "steering_variation": 3.1505894322351575,
+      "final_target_distance": 2.273207254523638,
+      "modes": {
+        "SEARCH": 574,
+        "APPROACH": 26
+      },
+      "mean_inference_ms": 11.911303378322676
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10002",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          4.119379295531797,
+          1.855612909560194,
+          -167.47237881396845
+        ],
+        "target": [
+          8.42278172454873,
+          1.1136521999027584,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.75421462790306,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.329236910465051,
+      "steering_variation": 6.599508227015266,
+      "final_target_distance": 1.7289896546119858,
+      "modes": {
+        "SEARCH": 470,
+        "AVOID": 19,
+        "APPROACH": 111
+      },
+      "mean_inference_ms": 4.755929055001313
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10003",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.98667128102489,
+          1.039347912150638,
+          -119.80853295665096
+        ],
+        "target": [
+          4.180221516127603,
+          4.576364573254902,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 20.27778467771021,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.33796307796183683,
+      "steering_variation": 4.676063298436535,
+      "final_target_distance": 0.6250559524017576,
+      "modes": {
+        "AVOID": 33,
+        "SEARCH": 510,
+        "APPROACH": 57
+      },
+      "mean_inference_ms": 8.550599380003709
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10004",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          5.853450446346163,
+          6.120224764227811,
+          179.27499645651983
+        ],
+        "target": [
+          7.619013243392987,
+          6.75802865799965,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 21.551828835096483,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.35919714725160806,
+      "steering_variation": 4.4517111011715285,
+      "final_target_distance": 0.58590766483737,
+      "modes": {
+        "SEARCH": 539,
+        "APPROACH": 61
+      },
+      "mean_inference_ms": 9.53163514000759
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10005",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          7.4004758508781,
+          5.2596692243826055,
+          -17.344391693268335
+        ],
+        "target": [
+          3.19723781771833,
+          3.998623072031072,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 20.8029907271267,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.34671651211877835,
+      "steering_variation": 5.746146408858833,
+      "final_target_distance": 0.9987720116200004,
+      "modes": {
+        "SEARCH": 468,
+        "AVOID": 42,
+        "APPROACH": 90
+      },
+      "mean_inference_ms": 9.869129221671452
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10006",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.9056469235319238,
+          2.3672221708883967,
+          107.55120893450231
+        ],
+        "target": [
+          8.803079701915514,
+          6.07394209725156,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 19.248680374739926,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.32081133957899877,
+      "steering_variation": 6.691133771510335,
+      "final_target_distance": 1.7232669625862993,
+      "modes": {
+        "SEARCH": 426,
+        "AVOID": 35,
+        "APPROACH": 139
+      },
+      "mean_inference_ms": 7.121383428340475
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10007",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.0523355461129222,
+          3.3044529644172513,
+          15.70812152118026
+        ],
+        "target": [
+          3.675166808737476,
+          8.07011594069721,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 20.7897839401554,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.34649639900259,
+      "steering_variation": 3.6881622616324607,
+      "final_target_distance": 1.2906693012664703,
+      "modes": {
+        "SEARCH": 557,
+        "APPROACH": 31,
+        "AVOID": 12
+      },
+      "mean_inference_ms": 6.920630721668506
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10008",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          2.158436473011945,
+          4.7013359011932065,
+          -9.061102070770431
+        ],
+        "target": [
+          3.5478044923887015,
+          8.27553936887005,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 20.633411575024766,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.34389019291707945,
+      "steering_variation": 3.4742879469558927,
+      "final_target_distance": 1.153447048845525,
+      "modes": {
+        "SEARCH": 565,
+        "APPROACH": 33,
+        "AVOID": 2
+      },
+      "mean_inference_ms": 6.280014088348859
+    },
+    {
+      "controller": "malecns-ablated",
+      "scenario": {
+        "name": "random_10009",
+        "task": "Find the red ball and stop near it.",
+        "size": [
+          10.0,
+          10.0
+        ],
+        "start": [
+          3.549881351518941,
+          3.7567887968110707,
+          -141.90864186202992
+        ],
+        "target": [
+          7.746912031851321,
+          4.256698485863555,
+          0.15
+        ],
+        "obstacles": [],
+        "timeout": 60,
+        "success_distance": 0.5,
+        "stop_speed": 0.03,
+        "stop_duration": 0.5
+      },
+      "status": "failed",
+      "reason": "timeout",
+      "time": 60.0,
+      "distance": 21.036068395153144,
+      "collisions": 0,
+      "decisions": 600,
+      "reversals": 0,
+      "maximum_speed": 0.3599996458942267,
+      "average_speed": 0.3506011399192191,
+      "steering_variation": 5.2051182238942655,
+      "final_target_distance": 1.1666335942335466,
+      "modes": {
+        "SEARCH": 521,
+        "APPROACH": 79
+      },
+      "mean_inference_ms": 6.8031475416713265
+    }
+  ],
+  "circuit_sha256": "fd701839af4c179a0a5da5537d9af7153d32da24d641a2d32462043372ae68c8",
+  "readout_sha256": "2a68ce22a61fef425afe156ef8dbd46b77068e90b44bb087d5f6580b6f6f2a04",
+  "controller_source_sha256": "c86a16faf94fce7393df53d6a3822120b97ba1ef0a0631850b670d1bf977d869",
+  "notes": [
+    "Synthetic simulator-specific perception; not a biological or hardware validation.",
+    "Visual ablation retains geometric safety, raw target visibility and stopping.",
+    "Collision-free timeout is not navigation success.",
+    "These comparisons do not establish an advantage over shuffled wiring."
+  ],
+  "wall_seconds": 154.91618195699994
+}

@@ -1,5 +1,5 @@
 {
-  "schema": "cns-car-visual-reservoir-v1",
+  "schema": "cns-rover-visual-reservoir-v1",
   "source_circuit": "a6975cdd7314f078588f758f434f8cff22787bcf86a4d7d1d239760a5ca18e52",
   "source_manifest_sha256": "19735588122c02982ec135a3c7ea96f879eeffdcd0d4b56647a514aaefa33847",
   "source_revision": "18933f06a9e80e9f40c503b2d58b54ab78e9283b",

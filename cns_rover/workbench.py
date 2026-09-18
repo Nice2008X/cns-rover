@@ -194,9 +194,9 @@ class Workbench:
         self.store = RunStore(root)
         self.factory = factory
         if model is None:
-            model = "data/malecns-car" if controller in ("malecns", "malecns-ablated") else "data/car-readout.npz"
-        self.model = Path(model) if controller not in ("malecns", "malecns-ablated") else Path("data/car-readout.npz")
-        self.malecns_model = Path(model) if controller in ("malecns", "malecns-ablated") else Path("data/malecns-car")
+            model = "data/malecns-rover" if controller in ("malecns", "malecns-ablated") else "data/rover-readout.npz"
+        self.model = Path(model) if controller not in ("malecns", "malecns-ablated") else Path("data/rover-readout.npz")
+        self.malecns_model = Path(model) if controller in ("malecns", "malecns-ablated") else Path("data/malecns-rover")
         self.config = validate_config({"scenario": scenario.to_dict(), "controller": controller})
         self.current = Experiment(self.config, self.get_factory(controller), self.store)
         self.running = False
@@ -214,12 +214,12 @@ class Workbench:
         if name == "custom":
             return self.factory
         if name in ("malecns", "malecns-ablated"):
-            from .malecns_controller import MaleCNSController
-            return lambda: MaleCNSController(self.malecns_model, ablated=name == "malecns-ablated")
+            from .malecns_controller import MaleCNSRoverController
+            return lambda: MaleCNSRoverController(self.malecns_model, ablated=name == "malecns-ablated")
         if name == "baseline":
             return lambda: load_controller("baseline")
-        from .brain import ConnectomeController
-        return lambda: ConnectomeController(self.model, ablated=name == "ablated")
+        from .brain import LegacyConnectomeRoverController
+        return lambda: LegacyConnectomeRoverController(self.model, ablated=name == "ablated")
 
     def state(self):
         with self.lock:

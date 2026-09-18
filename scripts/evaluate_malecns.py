@@ -13,10 +13,10 @@ import sys
 import time
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from cns_car.controllers import load_controller
-from cns_car.runner import Session
-from cns_car.scenario import Scenario, randomized
-from cns_car.malecns_data import digest
+from cns_rover.controllers import load_controller
+from cns_rover.runner import Session
+from cns_rover.scenario import Scenario, randomized
+from cns_rover.malecns_data import digest
 
 
 def obstacle_scenario(seed):
@@ -58,10 +58,10 @@ def evaluate(count=10, obstacle_seed=9900, empty_seed=10000):
                 'collisions': sum(r['collisions'] for r in selected),
                 'timeouts': sum(r['reason'] == 'timeout' for r in selected),
                 'mean_inference_ms': sum(r['mean_inference_ms'] for r in selected) / len(selected)}
-    return {'schema': 'malecns-car-evaluation-v1', 'summary': summary, 'runs': rows,
-            'circuit_sha256': digest('data/malecns-car/manifest.json'),
-            'readout_sha256': digest('data/malecns-car/readout.npz'),
-            'controller_source_sha256': digest('cns_car/malecns_controller.py'),
+    return {'schema': 'malecns-rover-evaluation-v1', 'summary': summary, 'runs': rows,
+            'circuit_sha256': digest('data/malecns-rover/manifest.json'),
+            'readout_sha256': digest('data/malecns-rover/readout.npz'),
+            'controller_source_sha256': digest('cns_rover/malecns_controller.py'),
             'notes': ['Synthetic simulator-specific perception; not a biological or hardware validation.',
                       'Visual ablation retains geometric safety, raw target visibility and stopping.',
                       'Collision-free timeout is not navigation success.',

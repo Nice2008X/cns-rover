@@ -7,7 +7,7 @@ from .runner import run, replay
 
 
 def main():
-    parser = argparse.ArgumentParser(description="CNS car simulation and connectome experiments")
+    parser = argparse.ArgumentParser(description="CNS rover simulation and connectome experiments")
     sub = parser.add_subparsers(dest="action", required=True)
     for name in ("run", "serve", "benchmark"):
         p = sub.add_parser(name)
@@ -31,10 +31,10 @@ def main():
         p.add_argument("--data", default="data")
         if name == "train-brain":
             p.add_argument("--episodes", type=int, default=20)
-            p.add_argument("--output", default="data/car-readout.npz")
+            p.add_argument("--output", default="data/rover-readout.npz")
     p = sub.add_parser("prepare-malecns", help="Build a fresh circuit from original MaleCNS v1.0 data")
     p.add_argument("--source", default="data/malecns-raw", help="Official Feather files or vendored R CSV export")
-    p.add_argument("--output", default="data/malecns-car")
+    p.add_argument("--output", default="data/malecns-rover")
     p.add_argument("--vendor", default="vendor/malecns")
     p.add_argument("--download", action="store_true", help="Fetch original public snapshot (~1.1 GB)")
     args = parser.parse_args()
@@ -47,7 +47,7 @@ def main():
         print(json.dumps({"circuit": info, "training": training}, indent=2))
         return
     if hasattr(args, "model") and args.model is None:
-        args.model = "data/malecns-car" if args.controller in ("malecns", "malecns-ablated") else "data/car-readout.npz"
+        args.model = "data/malecns-rover" if args.controller in ("malecns", "malecns-ablated") else "data/rover-readout.npz"
     if args.action in ("fetch-brain", "inspect-brain", "train-brain"):
         from .brain import fetch_assets, inspect_graph, train
         if args.action == "fetch-brain":
@@ -63,11 +63,11 @@ def main():
     else:
         def factory():
             if args.controller in ("malecns", "malecns-ablated"):
-                from .malecns_controller import MaleCNSController
-                return MaleCNSController(args.model, ablated=args.controller == "malecns-ablated")
+                from .malecns_controller import MaleCNSRoverController
+                return MaleCNSRoverController(args.model, ablated=args.controller == "malecns-ablated")
             if args.controller in ("connectome", "ablated"):
-                from .brain import ConnectomeController
-                return ConnectomeController(Path(args.model), ablated=args.controller == "ablated")
+                from .brain import LegacyConnectomeRoverController
+                return LegacyConnectomeRoverController(Path(args.model), ablated=args.controller == "ablated")
             return load_controller(args.controller)
         if args.action == "benchmark":
             if args.count < 1:

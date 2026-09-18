@@ -8,7 +8,7 @@ export default defineConfig({
   },
   webServer: {
     command:
-      ".venv/bin/python -c \"import tempfile,uvicorn; from cns_car.server import create_app; from cns_car.scenario import Scenario; from cns_car.controllers import BaselineController; uvicorn.run(create_app(Scenario(),BaselineController,tempfile.mkdtemp(prefix='cns-browser-'),port=8877),host='127.0.0.1',port=8877)\"",
+      ".venv/bin/python -c \"import tempfile,uvicorn; from cns_rover.server import create_app; from cns_rover.scenario import Scenario; from cns_rover.controllers import BaselineRoverController; uvicorn.run(create_app(Scenario(),BaselineRoverController,tempfile.mkdtemp(prefix='cns-browser-'),port=8877),host='127.0.0.1',port=8877)\"",
     cwd: "..",
     url: "http://127.0.0.1:8877",
     reuseExistingServer: false,

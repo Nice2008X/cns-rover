@@ -1,4 +1,4 @@
-"""New MaleCNS rate-circuit car policy and camera-only local avoidance.
+"""New MaleCNS rate-circuit rover policy and camera-only local avoidance.
 
 Geometry is reconstructed from RGB and configured camera calibration only.
 The short-lived local map uses command-based odometry, never simulator pose.
@@ -18,9 +18,9 @@ class RateCircuit:
         self.np = np
         directory = Path(directory)
         if not (directory / 'manifest.json').exists():
-            raise ValueError('MaleCNS car circuit missing. Run: python -m cns_car prepare-malecns')
+            raise ValueError('MaleCNS rover circuit missing. Run: python -m cns_rover prepare-malecns')
         self.manifest = json.loads((directory / 'manifest.json').read_text())
-        if self.manifest.get('schema') != 'malecns-car-circuit-v1':
+        if self.manifest.get('schema') != 'malecns-rover-circuit-v1':
             raise ValueError('Unsupported MaleCNS circuit schema')
         required = {'feed.npz', 'recurrent.npz', 'anatomy.npz', 'neurons.json'}
         if set(self.manifest.get('files', {})) != required:
@@ -43,7 +43,7 @@ class RateCircuit:
                 self.mean = data['mean'].copy()
                 self.scale = data['scale'].copy()
                 self.config = json.loads(str(data['config']))
-            if (self.config.get('schema') != 'malecns-car-readout-v1'
+            if (self.config.get('schema') != 'malecns-rover-readout-v1'
                     or self.config.get('circuit_sha256') != digest(directory / 'manifest.json')):
                 raise ValueError('MaleCNS readout/circuit identity mismatch')
             if (self.weights.shape != (n + 1, 3) or self.mean.shape != (n,)
@@ -72,13 +72,13 @@ class RateCircuit:
         return np.clip(result, [-1, -1, 0], [1, 1, 1]), int(np.count_nonzero(state > 1e-5))
 
 
-class MaleCNSController:
-    def __init__(self, model='data/malecns-car', ablated=False):
+class MaleCNSRoverController:
+    def __init__(self, model='data/malecns-rover', ablated=False):
         import numpy as np
         self.np = np
         self.circuit = RateCircuit(model)
         self.ablated = ablated
-        self.config = {**self.circuit.config, 'controller': 'native-malecns-car-v1',
+        self.config = {**self.circuit.config, 'controller': 'native-malecns-rover-v1',
                        'ablated': ablated, 'safety': 'RGB ground-plane local arc planner',
                        'dataset': self.circuit.manifest['dataset']}
         self.configure()
@@ -98,7 +98,7 @@ class MaleCNSController:
 
     def reset(self, task):
         if 'red ball' not in task.lower():
-            raise ValueError('MaleCNS car currently supports the red-ball task')
+            raise ValueError('MaleCNS rover currently supports the red-ball task')
         np = self.np
         self.points = np.empty((0, 4))  # x forward, y right, observation time, target flag
         self.last_time = None

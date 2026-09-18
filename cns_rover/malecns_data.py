@@ -65,7 +65,7 @@ def fetch_snapshot(directory):
     return directory
 
 
-def build_circuit(source='data/malecns-raw', output='data/malecns-car',
+def build_circuit(source='data/malecns-raw', output='data/malecns-rover',
                   vendor='vendor/malecns', limit=384):
     """Extract actual visual outgoing and downstream recurrent synapse counts.
 
@@ -173,7 +173,7 @@ def build_circuit(source='data/malecns-raw', output='data/malecns-car',
     (output / 'neurons.json').write_text(json.dumps([
         {k: metadata[int(i)].get(k) for k in ('bodyId', 'type', 'somaSide', 'superclass')}
         for i in ids], indent=2))
-    info = {'schema': 'malecns-car-circuit-v1', 'dataset': DATASET, 'provenance': provenance,
+    info = {'schema': 'malecns-rover-circuit-v1', 'dataset': DATASET, 'provenance': provenance,
             'source_sha256': {name: digest(source / name) for name in source_files},
             'vendor_sha256': {name: digest(vendor / name) for name in vendor_files},
             'visual_types': VISUAL_TYPES, 'visual_neurons': len(visual),
@@ -185,12 +185,12 @@ def build_circuit(source='data/malecns-raw', output='data/malecns-car',
             'files': {name: digest(output / name) for name in
                       ('feed.npz', 'recurrent.npz', 'anatomy.npz', 'neurons.json')}}
     (output / 'ATTRIBUTION.md').write_text(
-        '# MaleCNS car circuit attribution\n\n'
+        '# MaleCNS rover circuit attribution\n\n'
         'Original MaleCNS v1.0 data: FlyEM / HHMI Janelia, University of Cambridge,\n'
         'MRC Laboratory of Molecular Biology, Google Research, and collaborators.\n'
         'Source: https://male-cns.janelia.org/download/\n'
         'License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/\n\n'
-        'CNS Car transformations: visual/central subgraph extraction, normalized\n'
+        'CNS Rover transformations: visual/central subgraph extraction, normalized\n'
         'unsigned weights, engineered visual sectors and rate dynamics, and a new\n'
         'car readout. No Fly Brain Codex assets. Not biologically validated.\n'
         'Source URLs, original body IDs and hashes are retained with this model.\n')
@@ -198,7 +198,7 @@ def build_circuit(source='data/malecns-raw', output='data/malecns-car',
     return info
 
 
-def train_readout(directory='data/malecns-car', seed=2718, samples=6000):
+def train_readout(directory='data/malecns-rover', seed=2718, samples=6000):
     """Fit an engineered sensory-to-car readout, independent of the old policy.
 
     The targets are bearing, avoidance bias and proximity, not fly motor labels.
@@ -229,7 +229,7 @@ def train_readout(directory='data/malecns-car', seed=2718, samples=6000):
     penalty[-1, -1] = 0
     weights = np.linalg.solve(x[:samples].T @ x[:samples] + penalty,
                               x[:samples].T @ labels[:samples])
-    config = {'schema': 'malecns-car-readout-v1', 'circuit_sha256': digest(directory / 'manifest.json'),
+    config = {'schema': 'malecns-rover-readout-v1', 'circuit_sha256': digest(directory / 'manifest.json'),
               'seed': seed, 'training_samples': samples, 'validation_samples': 1000,
               'validation_rmse': np.sqrt(np.mean((x[samples:] @ weights - labels[samples:]) ** 2, axis=0)).tolist(),
               'outputs': ['target_bearing', 'avoidance_bias', 'proximity'],

@@ -137,12 +137,12 @@ def build_encoder(data):
     total = np.asarray(abs(feed).sum(axis=1)+abs(recurrent).sum(axis=1)).ravel()
     scale = sparse.diags(1/np.maximum(total, 1e-8))
     feed, recurrent = (scale@feed).tocsr(), (scale@recurrent).tocsr()
-    target = data/"car-encoder"
+    target = data/"rover-encoder"
     target.mkdir(parents=True, exist_ok=True)
     sparse.save_npz(target/"retina.npz", feed)
     sparse.save_npz(target/"recurrent.npz", recurrent)
     np.savez(target/"mapping.npz", uv=uv, retina_ids=ids[retina], output_ids=ids[selected])
-    info = {"schema": "cns-car-visual-reservoir-v1", "source_circuit": CIRCUIT_ID,
+    info = {"schema": "cns-rover-visual-reservoir-v1", "source_circuit": CIRCUIT_ID,
             "source_manifest_sha256": sha256(directory/"manifest.json"),
             "source_revision": REVISION, "retinal_neurons": len(retina),
             "visual_neurons": len(selected), "feed_edges": feed.nnz,
@@ -195,7 +195,7 @@ class VisualReservoir:
         return self.state.copy()
 
 
-class ConnectomeController:
+class LegacyConnectomeRoverController:
     def __init__(self, model, ablated=False):
         import numpy as np
         self.model = Path(model)
@@ -241,14 +241,14 @@ def train(data, episodes, output):
     import numpy as np
     import math
     from .camera import Camera
-    from .controllers import BaselineController
+    from .controllers import BaselineRoverController
     from .scenario import Scenario
     from .simulator import Simulator
     from .runner import Session
     encoder_path = build_encoder(data)
     encoder = VisualReservoir(encoder_path)
     camera = Camera()
-    teacher = BaselineController()
+    teacher = BaselineRoverController()
     teacher.reset("Find the red ball")
     rng = np.random.default_rng(2026)
     xs, ys = [], []
@@ -271,7 +271,7 @@ def train(data, episodes, output):
         angle = float(rng.uniform(-.5, .5))
         distance = float(rng.uniform(1.2, 3.5))
         scenario = Scenario(start=[5., 5., 0.], target=[5+distance*math.cos(angle), 5+distance*math.sin(angle), .15], timeout=25)
-        session = Session(scenario, BaselineController())
+        session = Session(scenario, BaselineRoverController())
         encoder.reset()
         while session.sim.status == "running":
             obs = camera.observe(session.sim)
@@ -292,11 +292,11 @@ def train(data, episodes, output):
     if output.suffix != ".npz":
         raise ValueError("Model output must end in .npz")
     output.parent.mkdir(parents=True, exist_ok=True)
-    config = {"schema": "cns-car-readout-v1", "source_revision": REVISION,
+    config = {"schema": "cns-rover-readout-v1", "source_revision": REVISION,
               "encoder": os.path.relpath(encoder_path.resolve(), output.parent.resolve()),
               "encoder_manifest_sha256": sha256(encoder_path/"manifest.json"),
               "training_seed": 2026, "episodes": episodes, "samples": len(x),
-              "teacher": "camera-only BaselineController", "ridge": 10,
+              "teacher": "camera-only BaselineRoverController", "ridge": 10,
               "biologically_validated": False}
     np.savez_compressed(output, weights=weights, mean=mean, scale=scale, config=json.dumps(config))
     result = {**config, "training_rmse": np.sqrt(np.mean((design@weights-y)**2, axis=0)).tolist(),
