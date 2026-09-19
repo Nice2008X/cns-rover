@@ -2,13 +2,13 @@
 
 **Connectome-guided robot navigation.**
 
-CNS Rover is a Python robot-car simulator and browser workbench for exploring
+CNS Rover is a Python rover simulator and browser workbench for exploring
 navigation with MaleCNS-derived neural circuits. Its native controller combines
 a freshly trained connectome readout with RGB obstacle avoidance, target tracking,
 and braking. Controllers receive camera pixels and simulated time; vehicle pose,
 world geometry, target coordinates, and collision state stay inside the simulator.
 
-The Python package and command names remain `cns_rover` and `cns-rover`.
+The Python package and command names are `cns_rover` and `cns-rover`.
 
 ## Quick start
 
@@ -41,10 +41,10 @@ dependencies and neural controllers add NumPy and SciPy through `brain`.
 
 | CLI selector | Controller | Model source and behavior |
 | --- | --- | --- |
-| `malecns` | MaleCNS rover + avoidance | Original MaleCNS v1.0 connectivity, a new car readout, and camera-based avoidance/braking |
+| `malecns` | MaleCNS rover + avoidance | Original MaleCNS v1.0 connectivity, a new rover readout, and camera-based avoidance/braking |
 | `malecns-ablated` | Native visual-input ablation | Same native model with neural visual drive disabled; geometric checks and target stopping remain active |
 | `baseline` | Camera baseline | Engineered red-ball tracking and curved search; no general obstacle avoidance |
-| `connectome` | Legacy connectome policy | Earlier Fly Brain Codex-derived visual circuit and learned car readout |
+| `connectome` | Legacy connectome policy | Earlier Fly Brain Codex-derived visual circuit and learned rover readout |
 | `ablated` | Legacy retinal-input ablation | Legacy model with retinal input disabled |
 | `your_module:YourController` | Custom controller | Loads a no-argument Python controller class |
 
@@ -69,7 +69,7 @@ with 1,000 separate validation patterns. Its outputs are target bearing,
 avoidance bias, and proximity. It uses no Fly Brain Codex code, circuits, or weights.
 
 ```text
-RGB → target and obstacle sectors → MaleCNS rate circuit → learned car readout
+RGB → target and obstacle sectors → MaleCNS rate circuit → learned rover readout
 RGB → visible ground contacts and target outline → local collision map
                               ↓
                 forward-path selection and braking
@@ -83,7 +83,7 @@ outside the camera view. Complete target silhouettes replace older estimates;
 edge-clipped views preserve the last complete outline.
 
 Visual-field mapping, unsigned weight normalization, rate dynamics, training
-labels, and car control are engineering choices. This is a reduced hybrid
+labels, and rover control are engineering choices. This is a reduced hybrid
 controller. Its behavior has not been biologically validated, and the measured
 results do not establish an advantage of fly wiring over other wiring.
 
@@ -276,7 +276,7 @@ OPENBLAS_NUM_THREADS=2 .venv/bin/python -m unittest discover -s tests -v
 npm run test:e2e --prefix frontend
 ```
 
-The latest implementation validation passed **36 Python tests**, **4 Playwright
+The latest implementation validation passed **36 Python tests**, **9 Playwright
 browser tests**, and the frontend build. Tests cover circuit dependence, visual
 ablation, model integrity, source imports, avoidance, blind-side target memory,
 recording/replay, and workbench behavior. Rebuilding from the pinned original
@@ -289,7 +289,7 @@ the included model assets and NumPy/SciPy.
   forward speed, and 0.7 m/s reverse speed. Dynamics run at 100 Hz; camera and
   controller decisions run at 10 Hz.
 - Coordinates are metres with y pointing down. Positive steering turns right.
-  Scenario headings are degrees; internal angles are radians. The car cannot
+  Scenario headings are degrees; internal angles are radians. The rover cannot
   rotate in place.
 - The default camera is a 96×72 RGB pinhole ray caster with 70° horizontal FOV,
   mounted 0.10 m ahead of the rear axle and 0.12 m above the ground. Workbench
