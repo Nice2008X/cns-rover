@@ -1,0 +1,73 @@
+name: ✨ Feature Request
+description: Suggest an improvement to CNS Rover's simulator, controllers, workbench, documentation, or developer tooling.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement. Please describe the user workflow
+        or research task it would support and identify any controller, scenario,
+        model, or API changes involved.
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate.
+          required: true
+        - label: I have checked the README and [workbench guide](https://github.com/Nice2008X/cns-rover/blob/main/docs/workbench.md) for an existing workflow.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What task is difficult or unavailable today? Include the users or experiments it affects.
+      placeholder: I want to compare ... but currently ...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the behavior or interface you would like to add.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Simulator and physics
+        - Native MaleCNS controller
+        - Legacy controller compatibility
+        - Object avoidance and perception
+        - Scenario and environment editor
+        - Workbench UI or replay
+        - Evaluation and telemetry
+        - Documentation
+        - Packaging and developer tooling
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe workarounds or other designs you considered.
+    validations:
+      required: false
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and validation considerations
+      description: Mention API, model-format, reproducibility, performance, or backward-compatibility concerns.
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add screenshots, diagrams, scenario files, links, or implementation notes.
+    validations:
+      required: false

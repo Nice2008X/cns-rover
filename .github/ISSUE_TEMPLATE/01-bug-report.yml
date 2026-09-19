@@ -1,0 +1,116 @@
+name: 🐛 Bug Report
+description: Report a reproducible problem in the CNS Rover simulator, controller, workbench, or tooling.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. CNS Rover includes a Python simulator,
+        native MaleCNS and legacy controllers, a FastAPI service, and a React
+        workbench. Please include the controller, scenario, and command used.
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate.
+          required: true
+        - label: I have checked the README's [simulation limits](https://github.com/Nice2008X/cns-rover#simulation-contract-and-limits) and this is not an expected limitation.
+          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the problem and its impact.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact command, controller, scenario or model, and relevant UI actions.
+      placeholder: |
+        1. Run `.venv/bin/python -m cns_rover serve --controller malecns --scenario scenarios/malecns_avoidance.json`
+        2. Select ... in the workbench
+        3. Click ...
+        4. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include the run status, error message, or incorrect output.
+    validations:
+      required: true
+  - type: dropdown
+    id: controller
+    attributes:
+      label: Controller
+      options:
+        - Native MaleCNS (`malecns`)
+        - Native MaleCNS ablation (`malecns-ablated`)
+        - Camera baseline (`baseline`)
+        - Legacy connectome (`connectome`)
+        - Legacy ablation (`ablated`)
+        - Custom controller
+        - Not applicable
+    validations:
+      required: true
+  - type: input
+    id: scenario-model
+    attributes:
+      label: Scenario or model path
+      description: Give the scenario file, model directory/file, or configuration used, if applicable.
+      placeholder: scenarios/malecns_avoidance.json or data/malecns-rover
+    validations:
+      required: false
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Include CNS Rover revision, Python version, and Node version if the frontend is involved.
+      placeholder: CNS Rover 0.2.0; Python 3.12; Node 24
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and errors
+      description: Paste the relevant terminal output, browser console error, or replay verifier output.
+      render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: Add screenshots of the workbench, camera frame, telemetry, or replay when useful.
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Include a minimal reproduction, custom controller details, or anything else that may help.
+    validations:
+      required: false

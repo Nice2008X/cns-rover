@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Read the CNS Rover documentation first
+    url: https://github.com/Nice2008X/cns-rover#readme
+    about: Check the controller guide, workbench guide, evaluation notes, and simulation limits before filing an issue.
+  - name: 🔐 Report a security issue
+    url: https://github.com/Nice2008X/cns-rover/security/policy
+    about: Use the security policy for vulnerabilities or unsafe behavior instead of a public issue.
