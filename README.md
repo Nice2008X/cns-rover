@@ -312,10 +312,6 @@ the included model assets and NumPy/SciPy.
 
 ## Credits
 
-CNS Rover is developed by [Nice2008X](https://github.com/Nice2008X). Please cite the project with [CITATION.cff](CITATION.cff) when using it in research or derivative work.
-
-The native controller uses MaleCNS connectivity and annotations from FlyEM at HHMI Janelia, the University of Cambridge, the MRC Laboratory of Molecular Biology, Google Research, and collaborators, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The vendored [natverse/malecns](vendor/malecns) package supports optional data export and is retained under its GPL-3.0 license. The legacy controller preserves derived assets and reference code from [Fly Brain Codex](vendor/fly-brain-codex), credited under its MIT license. Frontend tooling is provided by the React, Vite, TypeScript, Playwright, and Lucide projects.
-
 See [ATTRIBUTION.md](ATTRIBUTION.md), [LICENSE](LICENSE), and [SECURITY.md](SECURITY.md) for source details, license terms, and security reporting.
 
 ## Add a controller
