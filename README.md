@@ -175,6 +175,52 @@ verifies poses and final metrics. Browser runs support the same CLI verifier:
 `replay runs/workbench/RUN_ID`. See the [workbench guide](docs/workbench.md) for
 recording semantics, API details, and replay workflows.
 
+## Use cases
+
+CNS Rover is designed as a visual workbench as well as a simulator. These are the
+main workflows the dashboard supports.
+
+### 1. Run a connectome-guided rover through obstacles
+
+Choose **MaleCNS rover + avoidance** and run an obstacle scenario. The live view
+shows the evaluator world, the raw RGB frame sent to the controller, neural
+telemetry, local obstacle points, path clearance, and any safety override.
+
+![Native MaleCNS obstacle avoidance](docs/screenshots/use-case-native-avoidance.png)
+
+### 2. Compare controller models
+
+The Models page lets you switch between the native MaleCNS rover controller,
+visual ablation, the camera baseline, and the legacy connectome policy. Applying a
+selection creates a fresh recorded experiment, so each comparison remains
+replayable.
+
+![Controller and model selection](docs/screenshots/use-case-model-selection.png)
+
+### 3. Author environments and obstacle layouts
+
+Use the Environment editor to move the vehicle and target, add or remove
+cylindrical obstacles, choose presets, and create a new experiment from the edited
+world. This is useful for building targeted avoidance scenarios before evaluation.
+
+![Environment authoring](docs/screenshots/use-case-environment-editor.png)
+
+### 4. Inspect a synchronized replay
+
+Every run stores camera frames, commands, vehicle outcomes, debug telemetry, and
+timestamps. Select a timeline frame to inspect the exact camera input and model
+output that produced a decision.
+
+![Synchronized replay inspection](docs/screenshots/use-case-replay-debugger.png)
+
+### 5. Run matched controller analysis
+
+The Analysis page runs selected controllers on identical seeded empty-room
+scenarios and reports success, collisions, timeouts, and controller timing. Use the
+separate evaluation script when obstacle layouts are part of the comparison.
+
+![Matched controller analysis](docs/screenshots/use-case-analysis.png)
+
 ## Measured results
 
 The latest native-controller evaluation compares identical seeded scenarios:
@@ -211,7 +257,7 @@ are separate from the native-controller evaluation above.
 
 ## Development and verification
 
-Built frontend assets are included. For frontend development or rebuilding:
+Built frontend assets are included. For frontend development or rebuilding, use Node.js 20.19+ or 22.12+ (Node 24 is supported):
 
 ```sh
 npm ci --prefix frontend
@@ -263,6 +309,14 @@ the included model assets and NumPy/SciPy.
   require additional isolation and deadlines.
 - This project currently implements simulation only. It provides no hardware
   adapter or demonstrated real-robot safety guarantees.
+
+## Credits
+
+CNS Rover is developed by [Nice2008X](https://github.com/Nice2008X). Please cite the project with [CITATION.cff](CITATION.cff) when using it in research or derivative work.
+
+The native controller uses MaleCNS connectivity and annotations from FlyEM at HHMI Janelia, the University of Cambridge, the MRC Laboratory of Molecular Biology, Google Research, and collaborators, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The vendored [natverse/malecns](vendor/malecns) package supports optional data export and is retained under its GPL-3.0 license. The legacy controller preserves derived assets and reference code from [Fly Brain Codex](vendor/fly-brain-codex), credited under its MIT license. Frontend tooling is provided by the React, Vite, TypeScript, Playwright, and Lucide projects.
+
+See [ATTRIBUTION.md](ATTRIBUTION.md), [LICENSE](LICENSE), and [SECURITY.md](SECURITY.md) for source details, license terms, and security reporting.
 
 ## Add a controller
 

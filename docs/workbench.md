@@ -11,7 +11,7 @@ Use the repository virtual environment:
 .venv/bin/python -m cns_rover serve
 ```
 
-Open http://127.0.0.1:8765. Built frontend assets are included in `cns_rover/web/`, so Node is only needed when changing the interface:
+Open http://127.0.0.1:8765. Built frontend assets are included in `cns_rover/web/`, so Node is only needed when changing the interface. Vite 8 requires Node.js 20.19+ or 22.12+ (Node 24 is supported):
 
 ```sh
 npm ci --prefix frontend
